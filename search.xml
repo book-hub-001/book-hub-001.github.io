@@ -396,7 +396,7 @@
 <p><strong>Map</strong> <strong>集合整体格式：</strong></p>
 <p>Collection集合的格式: [元素1,元素2,元素3..]</p>
 <p>Map集合的完整格式：{key1=value1 , key2=value2 , key3=value3 , …}</p>
-<p><img src="D:\myblog\source_posts\Linux\Snipaste_2022-11-04_18-56-31.png"></p>
+<p><img src="/2022/09/18/JAVA/Snipaste_2022-11-04_18-56-31.png"></p>
 <p><strong>使用最多的</strong> <strong>Map</strong> <strong>集合是</strong> <strong>HashMap</strong> <strong>。</strong></p>
 <p>重点掌握HashMap , LinkedHashMap , TreeMap。其他的后续理解。</p>
 <p><strong>Map</strong> <strong>集合的键</strong> <strong>无序、不重复的</strong></p>
@@ -513,7 +513,7 @@
 <td>结合lambda遍历Map集合</td>
 </tr>
 </tbody></table>
-<p><img src="D:\myblog\source_posts\Linux\Snipaste_2022-11-04_19-17-39.png"></p>
+<p><img src="/2022/09/18/JAVA/Snipaste_2022-11-04_19-17-39.png"></p>
 <h5 id="HashMap的特点"><a href="#HashMap的特点" class="headerlink" title="HashMap的特点"></a><strong>HashMap的特点</strong></h5><p>HashMap是Map里面的一个实现类。特点都是由键决定的：无序、不重复、无索引</p>
 <p>没有额外需要学习的特有方法，直接使用Map里面的方法就可以了。</p>
 <p>HashMap跟HashSet底层原理是一模一样的，都是哈希表结构，只是HashMap的每个元素包含两个值而已。</p>
@@ -668,7 +668,7 @@
 
 <h3 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h3><p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
 <p>简单来说简化jdbc开发步骤</p>
-<h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_20-02-10.png"></p>
+<h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_20-02-10.png"></p>
 <h5 id="1-创建user表-添加数据"><a href="#1-创建user表-添加数据" class="headerlink" title="1.创建user表,添加数据"></a>1.创建user表,添加数据</h5><p>在数据库中创建相应的表,添加数据</p>
 <h5 id="2-创建模块-导入坐标"><a href="#2-创建模块-导入坐标" class="headerlink" title="2.创建模块,导入坐标"></a>2.创建模块,导入坐标</h5><p>在idea中创建模块</p>
 <p><a href="https://mybatis.net.cn/">mybatis官网</a>有maven导入坐标的代码</p>
@@ -691,12 +691,13 @@
 
 <p>(5)释放资源</p>
 <p>sqlSession.close();</p>
-<p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_20-52-46.png"></p>
-<h4 id="mapper代理"><a href="#mapper代理" class="headerlink" title="mapper代理"></a>mapper代理</h4><h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-06-02.png"></p>
+<p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_20-52-46.png"></p>
+<h4 id="mapper代理"><a href="#mapper代理" class="headerlink" title="mapper代理"></a>mapper代理</h4><h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-06-02.png"></p>
 <h5 id="1-定义接口"><a href="#1-定义接口" class="headerlink" title="1.定义接口"></a>1.定义接口</h5><p>定义与SQL映射文件同名的Mapper接口，并且将Mapper接口和SQL映射文件放置在同一目录下</p>
 <p>在resources中新建directory 命名为将mapper接口的命名中的’.’改为’/‘</p>
-<p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-16-10.png"></p>
-<h5 id="2-设置namespace"><a href="#2-设置namespace" class="headerlink" title="2.设置namespace"></a>2.设置namespace<img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-25-02.png"></h5><p>设置SQL映射文件的namespace,属性为Mapper接口全限定名</p>
+<p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-16-10.png"></p>
+<h5 id="2-设置namespace"><a href="#2-设置namespace" class="headerlink" title="2.设置namespace"></a>2.设置namespace</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-25-02.png"></p>
+<p>设置SQL映射文件的namespace,属性为Mapper接口全限定名</p>
 <p>以上图为例则为 com.itheima.mapper.UserMapper</p>
 <h5 id="3-定义mapper方法"><a href="#3-定义mapper方法" class="headerlink" title="3.定义mapper方法"></a>3.定义mapper方法</h5><p>在Mapper接口中定义方法，方法名就是SQL映射文件中sql语句的id,并保持参数类型和返回值类型一致</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List &lt;pojo类名&gt; selectid();</span><br></pre></td></tr></table></figure>
@@ -728,8 +729,8 @@
 
 
 
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-21_19-16-30.png"></p>
-<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-21_19-29-59.png"></p>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-21_19-16-30.png"></p>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-21_19-29-59.png"></p>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -740,22 +741,9 @@
       </tags>
   </entry>
   <entry>
-    <title>git-命令</title>
-    <url>/2022/08/15/git-%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#101;&#101;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#101;&#101;&#46;&#99;&#111;&#x6d;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
-<p>仓库地址 <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x65;&#101;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x65;&#101;&#46;&#99;&#x6f;&#x6d;</a>:yyl1546139844/yyl.git</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux</title>
     <url>/2022/11/03/Linux/</url>
-    <content><![CDATA[<h3 id="一-Linux简介与安装"><a href="#一-Linux简介与安装" class="headerlink" title="一.Linux简介与安装"></a>一.Linux简介与安装</h3><h3 id="二-Linux基础命令"><a href="#二-Linux基础命令" class="headerlink" title="二.Linux基础命令"></a>二.Linux基础命令</h3><h4 id="1-Linux目录结构"><a href="#1-Linux目录结构" class="headerlink" title="1.Linux目录结构"></a>1.Linux目录结构</h4><p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027214128.png" alt="image-20221027214128453"></p>
+    <content><![CDATA[<h3 id="一-Linux简介与安装"><a href="#一-Linux简介与安装" class="headerlink" title="一.Linux简介与安装"></a>一.Linux简介与安装</h3><h3 id="二-Linux基础命令"><a href="#二-Linux基础命令" class="headerlink" title="二.Linux基础命令"></a>二.Linux基础命令</h3><h4 id="1-Linux目录结构"><a href="#1-Linux目录结构" class="headerlink" title="1.Linux目录结构"></a>1.Linux目录结构</h4><p><img src="/2022/11/03/Linux/20221027214128.png"></p>
 <ul>
 <li><code>/</code>，根目录是最顶级的目录了</li>
 <li>Linux只有一个顶级目录：<code>/</code></li>
@@ -968,7 +956,7 @@
 <p>同图形化界面中的 文本编辑器一样，vi是命令行下对文本文件进行编辑的绝佳选择。</p>
 <p>vim 是 vi 的加强版本，兼容 vi 的所有指令，不仅能编辑文本，而且还具有 shell 程序编辑的功能，可以不同颜色的字体来辨别语法的正确性，极大方便了程序的设计和编辑性。</p>
 <p><strong>vi\vim编辑器的三种工作模式</strong></p>
-<p><img src="D:\myblog\source_posts\Linux\Snipaste_2022-11-03_16-44-04.png"></p>
+<p><img src="/2022/11/03/Linux/Snipaste_2022-11-03_16-44-04.png"></p>
 <p>命令模式（Command mode）</p>
 <p> 命令模式下，所敲的按键编辑器都理解为命令，以命令驱动执行不同的功能。</p>
 <p> 此模型下，不能自由进行文本编辑。</p>
@@ -1122,6 +1110,19 @@
 ]]></content>
   </entry>
   <entry>
+    <title>git-命令</title>
+    <url>/2022/08/15/git-%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#x2e;&#x63;&#111;&#x6d;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
+<p>仓库地址 <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#101;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#101;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>:yyl1546139844/yyl.git</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>html</title>
     <url>/2022/08/15/html/</url>
     <content><![CDATA[<h1 id="html-css"><a href="#html-css" class="headerlink" title="html/css"></a>html/css</h1><h2 id="一-文本属性"><a href="#一-文本属性" class="headerlink" title="一.文本属性"></a>一.文本属性</h2><p>文字整体为上边距，下边距和文本。</p>
@@ -1201,16 +1202,16 @@
 <p>通过request对象的相关方法获取数据</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.setCharacterEncoding(&quot;UTF-8&quot;);           //改变字符输入流编码方式防止Post乱码</span><br><span class="line"></span><br><span class="line">byte[] bytes = name.getBytes(StandardCharsets.ISO_8859_1);  //解决GET请求方式乱码问题,将乱码通过ISO_8859_1编码成char数组,再通过UTF_8解码成汉字</span><br><span class="line">username = new String (bytes,StandarCharsets.UTF_8);</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-02-57.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-02-57.png"></p>
 <p>可以通过一些方法实现Get和Post同一方法获取参数</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_19-57-15.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-08-18.png"></p>
-<h4 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-23-22.png"></p>
-<p>![(D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-24-24.png)</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-22-36.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-24-24.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-34-25.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_22-38-49.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_19-57-15.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-08-18.png"></p>
+<h4 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-23-22.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-24-24.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-22-36.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-24-24.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-34-25.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_22-38-49.png"></p>
 <h3 id="四-jsp"><a href="#四-jsp" class="headerlink" title="四.jsp"></a>四.jsp</h3><p>jsp(java Server Pages),java服务端页面</p>
 <p>jsp=HTML+java</p>
 <p>jsp可以简化开发,避免在servlet中直接输出HTML标签;</p>
@@ -1222,40 +1223,40 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%...%&gt;   内容放到_jspService()方法中</span><br><span class="line">&lt;%=...%&gt;   内容放到out.print()方法中,相当于html</span><br><span class="line">&lt;%!...%&gt;   内容直接被类包含</span><br></pre></td></tr></table></figure>
 
 <p>3.EL表达式</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_16-12-08.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_16-12-08.png"></p>
 <p>4.JSTL</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_16-14-00.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_16-19-56.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_16-14-00.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_16-19-56.png"></p>
 <h3 id="五-会话跟踪技术"><a href="#五-会话跟踪技术" class="headerlink" title="五.会话跟踪技术"></a>五.会话跟踪技术</h3><p>会话：用户打开浏览器，访问web服务器的资源， 会话建立，直到有一方断开连接，会话结束。在一次会话中<br>可以包含多次请求和响应<br>会话跟踪：一种维护浏览器状态的方法，服务器需要识别多次请求是否来自于同一浏览器，以便在同一次会话<br>的多次请求间共享数据<br>HTTP协议是无状态的，每次浏览器向服务器请求时，服务器都会将该请求视为新的请求， 因此我们需要会话跟踪技术来实现会话内数据共享<br>实现方式：<br>1.客户端会话跟踪技术：Cookie<br>2.服务端会话跟踪技术：Session</p>
-<h4 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-13-50.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-15-58.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-20-10.png"></p>
-<h4 id="2-Session"><a href="#2-Session" class="headerlink" title="2.Session"></a>2.Session</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-23-51.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-26-14.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-24_20-29-15.png"></p>
+<h4 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-13-50.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-15-58.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-20-10.png"></p>
+<h4 id="2-Session"><a href="#2-Session" class="headerlink" title="2.Session"></a>2.Session</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-23-51.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-26-14.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-24_20-29-15.png"></p>
 <h3 id="六-AJAX"><a href="#六-AJAX" class="headerlink" title="六.AJAX"></a>六.AJAX</h3><p>概念：AJAX(Asynchronous JavaScript And XML）：异步的JavaScript和XML<br>AJAX作用：</p>
 <ol>
 <li>与服务器进行数据交换：通过AJAX可以给服务器发送请求，并获取服务器响应的数据<br>使用了AJAX和服务器进行通信，就可以使用HTML+AJAX来替换JSP页面了</li>
 <li>异步交互：可以在不重新加载整个页面的情况下，与服务器交换数据并更新部分网页的技术，如：搜索联想、用<br>户名是否可用校验，等等…</li>
 </ol>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_19-57-21.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_20-04-14.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_19-57-21.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_20-04-14.png"></p>
 <h4 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h4><p><a href="https://www.axios-http.cn/">Axios</a>是对AJAX的代码进行封装以达到简化AJAX的目的</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_20-11-53.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_20-21-03.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_20-11-53.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_20-21-03.png"></p>
 <h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>概念：JavaScript t Object Notation JavaScript对象表示法<br>由于其语法简单， 层次结构鲜明， 现多用于作为数据载体，在网络中进行数据传输</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_20-42-15.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-26_20-44-17.png"></p>
-<h3 id="七-vue"><a href="#七-vue" class="headerlink" title="七.vue"></a>七.vue</h3><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-40-57.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-43-54.png"></p>
-<h4 id="vue常用指令"><a href="#vue常用指令" class="headerlink" title="vue常用指令"></a>vue常用指令</h4><h5 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-56-56.png"></p>
-<h5 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h5><h5 id="v–on"><a href="#v–on" class="headerlink" title="v–on"></a>v–on</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-57-37.png"></p>
-<h5 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h5><h5 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h5><h5 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h5><h5 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-58-05.png"></p>
-<h5 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-58-31.png"></p>
-<h4 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_12-54-40.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_20-42-15.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-26_20-44-17.png"></p>
+<h3 id="七-vue"><a href="#七-vue" class="headerlink" title="七.vue"></a>七.vue</h3><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-40-57.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-43-54.png"></p>
+<h4 id="vue常用指令"><a href="#vue常用指令" class="headerlink" title="vue常用指令"></a>vue常用指令</h4><h5 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-56-56.png"></p>
+<h5 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h5><h5 id="v–on"><a href="#v–on" class="headerlink" title="v–on"></a>v–on</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-57-37.png"></p>
+<h5 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h5><h5 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h5><h5 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h5><h5 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-58-05.png"></p>
+<h5 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-58-31.png"></p>
+<h4 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_12-54-40.png"></p>
 <h3 id="八-Element"><a href="#八-Element" class="headerlink" title="八.Element"></a>八.Element</h3><p><a href="https://element.eleme.cn/#/zh-CN">element</a>是基于vue2的,如果导入vue3的js会导致element样式失效</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_13-13-27.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-27_14-05-11.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_13-13-27.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-27_14-05-11.png"></p>
 <h3 id="九综合练习"><a href="#九综合练习" class="headerlink" title="九综合练习"></a>九综合练习</h3><h4 id="1-搭建环境"><a href="#1-搭建环境" class="headerlink" title="1.搭建环境"></a>1.搭建环境</h4><h5 id="1-创建项目-选择maven项目框架"><a href="#1-创建项目-选择maven项目框架" class="headerlink" title="(1)创建项目,选择maven项目框架"></a>(1)创建项目,选择maven项目框架</h5><h5 id="2-创建pojo类"><a href="#2-创建pojo类" class="headerlink" title="(2)创建pojo类"></a>(2)创建pojo类</h5><p>根据数据库创建实体类</p>
 <h5 id="3-配置maven的pom-xml文件"><a href="#3-配置maven的pom-xml文件" class="headerlink" title="(3)配置maven的pom.xml文件"></a>(3)配置maven的pom.xml文件</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span>     <span class="comment">&lt;!--改变打包方式,war为web项目用包--&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--导入jar包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--导入jdbc--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.29<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--导入mybatis--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">&lt;!--导入servlet--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">&lt;!--导入jsp--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--fastjson--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.62<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">        <span class="comment">&lt;!--tomcat插件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -1327,35 +1328,6 @@
       </tags>
   </entry>
   <entry>
-    <title>matlab</title>
-    <url>/2022/09/28/matlab/</url>
-    <content><![CDATA[<p>一.清空</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear all :清除workspace所以变量.</span><br><span class="line"></span><br><span class="line">clc : 清除命令.</span><br></pre></td></tr></table></figure>
-
-<p>二.注释</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%注释内容</span></span><br></pre></td></tr></table></figure>
-
-<p>三.数据类型</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span>                      <span class="comment">%数字</span></span><br><span class="line">ch=<span class="string">&#x27;a&#x27;</span>                   <span class="comment">%字符</span></span><br><span class="line"><span class="built_in">abs</span>(ch)                  <span class="comment">%ascll码</span></span><br><span class="line">char(<span class="number">97</span>)                 <span class="comment">%ascll为97的字符</span></span><br><span class="line">num2str(<span class="number">65</span>)              <span class="comment">%ans=65</span></span><br><span class="line">name=<span class="string">&#x27;zhangsan&#x27;</span>          <span class="comment">%字符串</span></span><br><span class="line"><span class="built_in">length</span>(name)             <span class="comment">%计算字符串长度</span></span><br><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="built_in">zeros</span>(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>)          <span class="comment">%10行 5列 三维矩阵 数值都为零</span></span><br><span class="line">E(:,:,<span class="number">1</span>) =<span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">2</span>) =<span class="built_in">randn</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">3</span>) =randi(<span class="number">10</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">A=cell(<span class="number">6</span>,<span class="number">6</span>)              <span class="comment">%六行六列元胞数组</span></span><br><span class="line">A=&#123;<span class="number">1</span>,<span class="number">2</span>&#125;=<span class="built_in">eye</span>(<span class="number">3</span>)           <span class="comment">%使得A的一行二列的值为三行三列的单位矩阵</span></span><br><span class="line">A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;=<span class="built_in">magic</span>(<span class="number">5</span>)          <span class="comment">%五行五列的列阵,行列相加值相等</span></span><br><span class="line">B=A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;                 <span class="comment">%赋值</span></span><br><span class="line">books = struct (<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;zhngsan&#x27;</span>,<span class="string">&#x27;lisi&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span> <span class="number">40</span>])<span class="comment">%结构体</span></span><br><span class="line">books.name(<span class="number">1</span>)            <span class="comment">%取细胞</span></span><br><span class="line">books.name&#123;<span class="number">1</span>&#125;            <span class="comment">%取值</span></span><br></pre></td></tr></table></figure>
-
-<p>四.随机数</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rand</span>                     <span class="comment">%0到1伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列0到1伪随机数矩阵</span></span><br><span class="line"><span class="built_in">randn</span>                    <span class="comment">%标准正态分布伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列标准正态分布伪随机数矩阵</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>])         <span class="comment">%区间内伪随机整数</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>],m,n)     </span><br></pre></td></tr></table></figure>
-
-<p>五.矩阵</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>                  <span class="comment">%1到9每隔2去一个数字</span></span><br><span class="line">F=<span class="built_in">repmat</span>(E,<span class="number">3</span>,<span class="number">3</span>)          <span class="comment">%把E矩阵三行三列重复</span></span><br><span class="line">D=<span class="built_in">ones</span>(<span class="number">4</span>,<span class="number">4</span>)              <span class="comment">%四行四列的值为一的矩阵</span></span><br><span class="line">A .* B                   <span class="comment">%对应项相乘</span></span><br><span class="line">A / B                    <span class="comment">%A乘以B的逆</span></span><br><span class="line">A ./ B                   <span class="comment">%对应项相除</span></span><br><span class="line">C=A(<span class="number">3</span>,:)                 <span class="comment">%取A的第三行</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)       <span class="comment">%找到A中大于二十的值的序列</span></span><br></pre></td></tr></table></figure>
-
-<p>六.程序结构</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">1</span>:<span class="number">10</span>             <span class="comment">%从1开始每次加1到10为止</span></span><br><span class="line">a=a+n;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&lt;<span class="number">10</span></span><br><span class="line">n=n+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">otherwise</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>七.二维绘图</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">10</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)</span><br><span class="line">title(<span class="string">&#x27;y=sin(x)&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span>:</span><br><span class="line">y1=<span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x):</span><br><span class="line">y2=<span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x):</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,HI,H2]=plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>)                 <span class="comment">%公用一个x轴绘图</span></span><br><span class="line">set (get (AX(<span class="number">1</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)</span><br><span class="line">set (get (AX(<span class="number">2</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiple Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)  <span class="comment">%三维绘图</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on               <span class="comment">%网格</span></span><br><span class="line">axis square           <span class="comment">%正方体</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>matlab</category>
-      </categories>
-  </entry>
-  <entry>
     <title>leetcode</title>
     <url>/2022/08/16/leetcode/</url>
     <content><![CDATA[<p>C++解法</p>
@@ -1391,87 +1363,33 @@
       </tags>
   </entry>
   <entry>
-    <title>博客搭建</title>
-    <url>/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h3 id="Hexo零基础搭建个人博客"><a href="#Hexo零基础搭建个人博客" class="headerlink" title="Hexo零基础搭建个人博客"></a>Hexo零基础搭建个人博客</h3><p>Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress<br>插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有<br>数百个主题和插件。</p>
-<h4 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h4><p>1、安装Node.js<br>直接到官网上下载安装即可<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
-<p>Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br>Node自带npm<br>2、安装Git<br>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a>.<br>Mac：使用 Homebrew, <a href="https://www.macports.org/">MacPorts</a> 或者下载 安装程序。<br>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code><br>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/1.png"></p>
-<p>npm下载慢的话也可以下载淘宝下载源cnpm</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<h4 id="二、开始安装Hexo"><a href="#二、开始安装Hexo" class="headerlink" title="二、开始安装Hexo"></a>二、开始安装Hexo</h4><p>1、安装hexo(cd进入到你要创立博客的文件内)<br><code>npm install -g hexo-cli</code><br><code>或者</code><br><code>cnpm install -g hexo-cli</code><br>安装完成可输入hexo -v查看版本</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2.png"></p>
-<p>2、初始化hexo，新建存储博客的文件夹<br><code>hexo init myblog</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/3.png"></p>
-<p>3、进入文件夹，安装一下npm<br>cd myblog<br>npm install<br>可以看到我们的hexo站点就已经安装好了，接下来就可以直接启动他了</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/4.png"></p>
-<p>4、启动服务站点<br><code>hexo g</code><br><code>hexo server</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/5.png"></p>
-<p>访问<a href="http://localhost:4000/">http://localhost:4000/</a> 至此hero就搭建好了。可以在本地访问了</p>
-<h4 id="三、Gitee上建站访问"><a href="#三、Gitee上建站访问" class="headerlink" title="三、Gitee上建站访问"></a>三、Gitee上建站访问</h4><p>可在github或者gitee上建站，gitee国内访问快一些</p>
-<p>1、新建仓库<br>仓库名和路径格式必须是：用户名 只有这样，将来要部署到Gite e page的时候，才会被识别.</p>
-<p>2、将hexo博客站点上传到gitee上<br>这里需要安装一个hexo的上传插件deploy-git</p>
-<p><code>npm install hexo-deployer-git --save</code></p>
-<p>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
-<p>找到Deployment加上（注意空格）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 你的仓库路径</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+    <title>matlab</title>
+    <url>/2022/09/28/matlab/</url>
+    <content><![CDATA[<p>一.清空</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear all :清除workspace所以变量.</span><br><span class="line"></span><br><span class="line">clc : 清除命令.</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/7.png"></p>
-<p>在URL中找到url地址改为<a href="https://gitee.com/XXX/XXX.git">https://gitee.com/XXX/XXX.git</a>     XXX为你的用户名</p>
-<p>在url 下面添加 <code>root: ./XXX</code>     XXX为你的用户名</p>
-<p>4、推送hexo站点文件<br>之后就可以推送博客站点到gitee上了</p>
-<p>推送命令<br><code>hexo d</code><br>扩展：</p>
-<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>推送中会要求输入gitee的用户名和密码（如果不想每次都输可以<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a>，我这里就不做演示了）</p>
-<p>然后就可以看到gitee上有推上来的文件了</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/8.png"></p>
-<p>5、配置Pages服务<br>目前我们站点还无法访问需要开启Gitee Pages（gitee需要开启，github不需要）</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/9.png"></p>
-<p>审核通过启动我们就可以访问啦。</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/10.png"></p>
-<p>gitee上传新文件之后，需要手动更新一下，更新后的页面才会生效</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/11.png"></p>
-<p>多说一句：如果觉得这个访问路径太长了，我们可以去买一个域名，将该路径绑定到域名上，即可通过域名访问了。</p>
-<h4 id="四、GitHub上建站访问"><a href="#四、GitHub上建站访问" class="headerlink" title="四、GitHub上建站访问"></a>四、GitHub上建站访问</h4><p>在gitee上建站发现有限制条件，所有也可以采用github建站的方式。</p>
-<p>步骤和gitee一样。</p>
-<p>1、新建guthub仓库<br>仓库名称限制了为你的：用户名+.github.io</p>
-<p>2、安装hexo上传插件<br><code>npm install hexo-deployer-git --save</code><br>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
-<p><code>vim _config.yml #找到Deploymentdeploy:  type: git  repo: 你的github仓库路径  branch: master</code><br><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/12.png"></p>
-<p>4、推送站点到github<br><code>推送命令hexo d</code><br>推送过程中需要输入你的github用户名和密码。但是在2021年8月14日开始github官方就加强安全访问。不能通过原有账号密码git访问，密码需要用官方的token或者采用ssh公私钥访问。否则会出现鉴权失败（用户名密码错误）</p>
-<p>解决方式就是获取token，登录github设置setting-&gt;Developer Settings-&gt;Prosonal access tokens 创建一个新token。然后就可以拿这个token当密码输入了。用户名和token输入后，上传成功。</p>
-<p>建议使用<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a></p>
-<h4 id="5、尝试访问"><a href="#5、尝试访问" class="headerlink" title="5、尝试访问"></a>5、尝试访问</h4><p>输入你的仓库名称,即可访问成功。</p>
-<p><a href="https://xxx.github.io/">https://XXX.github.io/</a></p>
-<h4 id="五、更换主题"><a href="#五、更换主题" class="headerlink" title="五、更换主题"></a>五、更换主题</h4><p>到GitHub上搜索hexo主题或者hero自带的主题<a href="https://hexo.io/themes/%E3%80%82">https://hexo.io/themes/。</a></p>
-<p>1、找一个喜欢的。</p>
-<p>按照各自的主题文档上面一步步操作即可。</p>
-<p>一般步骤：</p>
-<p>1、下载解压2、放到主题包themes文件夹下面3、在hero配置文件_config.yml中修改为喜欢主题的名字4、hero server启动即可访问</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/13.png"></p>
-<h4 id="六、更新仓库"><a href="#六、更新仓库" class="headerlink" title="六、更新仓库"></a>六、更新仓库</h4><p>本地调试完之后。就可以更新到github上了</p>
-<p>//清理hexo clean//构建静态文件hexo g//上传至仓库hexo d</p>
-<h4 id="七、写文章"><a href="#七、写文章" class="headerlink" title="七、写文章"></a>七、写文章</h4><p>在站点文件夹中打开 git ，输入hexo new 博客名称。hexo会在source文件夹下_posts的创建一个markdowm的文件。这就是你要编写的文章。</p>
-<p>在上传更新到github上立马能够查看到。</p>
-<p>//清理hexo clean//构建静态文件hexo g//上传至仓库(上传报错多位网络原因，多上传几次即可)hexo d</p>
-<p>草稿箱<br>很多时候我们需要先写成草稿，而暂时不发布出去。draft page就可以满足我们的要求，我们的网站上是看不到草稿文件的。</p>
-<p>//新建草稿文件hexo new draft b//预览草稿文件hexo server –draft//发布草稿hexo publish b</p>
-<h4 id="八、新建页面"><a href="#八、新建页面" class="headerlink" title="八、新建页面"></a>八、新建页面</h4><p>有时我们不满足主题自由的一些页面，希望自己添加一些页面。</p>
-<p>我们可以新建页面,新建页面则会在hexo的source中新建该页面文件并生成md文件，这就是你要编辑的博客页了。</p>
-<p><code>hexo new page &quot;resouces&quot;</code></p>
-<p>然后打开主题的配置文件_config.yml，在菜单属性menu中的添加如下（注意不是Hexo的配置文件）</p>
-<p>将页面路径联接到页面上去</p>
-<p>菜单自定义名称：/生成的页面名称</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/14.png"></p>
-<p>当我们点击资源时后会跳转到我们自定义的博客页了</p>
-<h4 id="九、常见问题"><a href="#九、常见问题" class="headerlink" title="九、常见问题"></a>九、常见问题</h4><h5 id="1-文章插入图片"><a href="#1-文章插入图片" class="headerlink" title="1.文章插入图片"></a>1.文章插入图片</h5><p>1.设置站点配置_config.yml:将post_asset_folder: false改为post_asset_folder: true<br>安装插件:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code><br>运行hexo n “XXXXXX”,生成XXXXX.md博文时就会在/source/_posts目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。<br>添加图片:在想添加的位置写入<code>![](图片名字),例如![](1.png)</code>。</p>
-<h5 id="2-文章内跳转另一篇文章"><a href="#2-文章内跳转另一篇文章" class="headerlink" title="2.文章内跳转另一篇文章"></a>2.文章内跳转另一篇文章</h5><p><code>&#123;%post_link 文章名称(不加后缀) 显示文字%&#125;</code></p>
+<p>二.注释</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%注释内容</span></span><br></pre></td></tr></table></figure>
+
+<p>三.数据类型</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span>                      <span class="comment">%数字</span></span><br><span class="line">ch=<span class="string">&#x27;a&#x27;</span>                   <span class="comment">%字符</span></span><br><span class="line"><span class="built_in">abs</span>(ch)                  <span class="comment">%ascll码</span></span><br><span class="line">char(<span class="number">97</span>)                 <span class="comment">%ascll为97的字符</span></span><br><span class="line">num2str(<span class="number">65</span>)              <span class="comment">%ans=65</span></span><br><span class="line">name=<span class="string">&#x27;zhangsan&#x27;</span>          <span class="comment">%字符串</span></span><br><span class="line"><span class="built_in">length</span>(name)             <span class="comment">%计算字符串长度</span></span><br><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="built_in">zeros</span>(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>)          <span class="comment">%10行 5列 三维矩阵 数值都为零</span></span><br><span class="line">E(:,:,<span class="number">1</span>) =<span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">2</span>) =<span class="built_in">randn</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">3</span>) =randi(<span class="number">10</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">A=cell(<span class="number">6</span>,<span class="number">6</span>)              <span class="comment">%六行六列元胞数组</span></span><br><span class="line">A=&#123;<span class="number">1</span>,<span class="number">2</span>&#125;=<span class="built_in">eye</span>(<span class="number">3</span>)           <span class="comment">%使得A的一行二列的值为三行三列的单位矩阵</span></span><br><span class="line">A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;=<span class="built_in">magic</span>(<span class="number">5</span>)          <span class="comment">%五行五列的列阵,行列相加值相等</span></span><br><span class="line">B=A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;                 <span class="comment">%赋值</span></span><br><span class="line">books = struct (<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;zhngsan&#x27;</span>,<span class="string">&#x27;lisi&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span> <span class="number">40</span>])<span class="comment">%结构体</span></span><br><span class="line">books.name(<span class="number">1</span>)            <span class="comment">%取细胞</span></span><br><span class="line">books.name&#123;<span class="number">1</span>&#125;            <span class="comment">%取值</span></span><br></pre></td></tr></table></figure>
+
+<p>四.随机数</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rand</span>                     <span class="comment">%0到1伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列0到1伪随机数矩阵</span></span><br><span class="line"><span class="built_in">randn</span>                    <span class="comment">%标准正态分布伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列标准正态分布伪随机数矩阵</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>])         <span class="comment">%区间内伪随机整数</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>],m,n)     </span><br></pre></td></tr></table></figure>
+
+<p>五.矩阵</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>                  <span class="comment">%1到9每隔2去一个数字</span></span><br><span class="line">F=<span class="built_in">repmat</span>(E,<span class="number">3</span>,<span class="number">3</span>)          <span class="comment">%把E矩阵三行三列重复</span></span><br><span class="line">D=<span class="built_in">ones</span>(<span class="number">4</span>,<span class="number">4</span>)              <span class="comment">%四行四列的值为一的矩阵</span></span><br><span class="line">A .* B                   <span class="comment">%对应项相乘</span></span><br><span class="line">A / B                    <span class="comment">%A乘以B的逆</span></span><br><span class="line">A ./ B                   <span class="comment">%对应项相除</span></span><br><span class="line">C=A(<span class="number">3</span>,:)                 <span class="comment">%取A的第三行</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)       <span class="comment">%找到A中大于二十的值的序列</span></span><br></pre></td></tr></table></figure>
+
+<p>六.程序结构</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">1</span>:<span class="number">10</span>             <span class="comment">%从1开始每次加1到10为止</span></span><br><span class="line">a=a+n;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&lt;<span class="number">10</span></span><br><span class="line">n=n+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">otherwise</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>七.二维绘图</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">10</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)</span><br><span class="line">title(<span class="string">&#x27;y=sin(x)&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span>:</span><br><span class="line">y1=<span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x):</span><br><span class="line">y2=<span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x):</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,HI,H2]=plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>)                 <span class="comment">%公用一个x轴绘图</span></span><br><span class="line">set (get (AX(<span class="number">1</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)</span><br><span class="line">set (get (AX(<span class="number">2</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiple Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)  <span class="comment">%三维绘图</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on               <span class="comment">%网格</span></span><br><span class="line">axis square           <span class="comment">%正方体</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>matlab</category>
       </categories>
-      <tags>
-        <tag>搭建</tag>
-      </tags>
   </entry>
   <entry>
     <title>maven</title>
@@ -1481,7 +1399,7 @@
 <p>提供了一套标准化的项目结构<br>提供了一套标准化的构建流程(编译，测试，打包，发布…)<br>提供了一套依赖管理机制</p>
 </blockquote>
 <h3 id="maven简介"><a href="#maven简介" class="headerlink" title="maven简介"></a>maven简介</h3><p>Apache Maven是一个项目管理和构建工具，它基于项目对象模型<br>(POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档<br>官网：<a href="http://maven.apache.org/">http://maven.apache.org/</a></p>
-<p><img src="D:\myblog\source_posts\maven\Snipaste_2022-10-19_19-01-06.png"></p>
+<p><img src="/2022/10/19/maven/Snipaste_2022-10-19_19-01-06.png"></p>
 <h3 id="maven安装和配置"><a href="#maven安装和配置" class="headerlink" title="maven安装和配置"></a>maven安装和配置</h3><p>1.安装</p>
 <p>官网下载后直接解压</p>
 <p>2.配置</p>
@@ -1493,7 +1411,7 @@
 <h3 id="maven基本使用"><a href="#maven基本使用" class="headerlink" title="maven基本使用"></a>maven基本使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mvn compile      编译</span><br><span class="line">mvn clear        清理编译文件</span><br><span class="line">mvn package      打包</span><br><span class="line">mvn test         测试</span><br><span class="line">mvn install      将项目安装到本地仓库</span><br></pre></td></tr></table></figure>
 
 <p>Maven生命周期<br>Maven构建项目生命周期描述的是一次构建过程经历经历了多少个事件<br>Maven对项目构建的生命周期划分为3套<br>clean:清理工作<br>default:核心工作，例如编译，测试，打包，安装等<br>site:产生报告，发布站点等</p>
-<p><img src="D:\myblog\source_posts\maven\Snipaste_2022-10-19_19-55-16.png"></p>
+<p><img src="/2022/10/19/maven/Snipaste_2022-10-19_19-55-16.png"></p>
 <h4 id="IDEA-配置Maven"><a href="#IDEA-配置Maven" class="headerlink" title="IDEA 配置Maven"></a>IDEA 配置Maven</h4><p>在IDEA中  File—-setting—-搜索maven  设置  最后三个路径 (maven路径,配置文件路径,仓库路径)</p>
 <h4 id="坐标-dependency"><a href="#坐标-dependency" class="headerlink" title="坐标(dependency)"></a>坐标(dependency)</h4><p>Maven中的坐标是资源的唯一标识<br>使用坐标来定义项目或引入项目中需要的依赖<br>Maven坐标主要组成<br>groupld:定义当前Maven项目隶属组织名称(通常是域名反写，例如：com.itheima)<br>artifactld:定义当前Maven.项目名称(通常是模块名称，例如order–service、goods-service)<br>version:定义当前项目版本号</p>
 <h4 id="创建maven项目"><a href="#创建maven项目" class="headerlink" title="创建maven项目"></a>创建maven项目</h4><p>在创建module时选择maven即可</p>
@@ -1658,6 +1576,89 @@
       </categories>
       <tags>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建</title>
+    <url>/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h3 id="Hexo零基础搭建个人博客"><a href="#Hexo零基础搭建个人博客" class="headerlink" title="Hexo零基础搭建个人博客"></a>Hexo零基础搭建个人博客</h3><p>Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress<br>插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有<br>数百个主题和插件。</p>
+<h4 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h4><p>1、安装Node.js<br>直接到官网上下载安装即可<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+<p>Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br>Node自带npm<br>2、安装Git<br>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a>.<br>Mac：使用 Homebrew, <a href="https://www.macports.org/">MacPorts</a> 或者下载 安装程序。<br>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code><br>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/1.png"></p>
+<p>npm下载慢的话也可以下载淘宝下载源cnpm</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<h4 id="二、开始安装Hexo"><a href="#二、开始安装Hexo" class="headerlink" title="二、开始安装Hexo"></a>二、开始安装Hexo</h4><p>1、安装hexo(cd进入到你要创立博客的文件内)<br><code>npm install -g hexo-cli</code><br><code>或者</code><br><code>cnpm install -g hexo-cli</code><br>安装完成可输入hexo -v查看版本</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2.png"></p>
+<p>2、初始化hexo，新建存储博客的文件夹<br><code>hexo init myblog</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/3.png"></p>
+<p>3、进入文件夹，安装一下npm<br>cd myblog<br>npm install<br>可以看到我们的hexo站点就已经安装好了，接下来就可以直接启动他了</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/4.png"></p>
+<p>4、启动服务站点<br><code>hexo g</code><br><code>hexo server</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/5.png"></p>
+<p>访问<a href="http://localhost:4000/">http://localhost:4000/</a> 至此hero就搭建好了。可以在本地访问了</p>
+<h4 id="三、Gitee上建站访问"><a href="#三、Gitee上建站访问" class="headerlink" title="三、Gitee上建站访问"></a>三、Gitee上建站访问</h4><p>可在github或者gitee上建站，gitee国内访问快一些</p>
+<p>1、新建仓库<br>仓库名和路径格式必须是：用户名 只有这样，将来要部署到Gite e page的时候，才会被识别.</p>
+<p>2、将hexo博客站点上传到gitee上<br>这里需要安装一个hexo的上传插件deploy-git</p>
+<p><code>npm install hexo-deployer-git --save</code></p>
+<p>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
+<p>找到Deployment加上（注意空格）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 你的仓库路径</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/7.png"></p>
+<p>在URL中找到url地址改为<a href="https://gitee.com/XXX/XXX.git">https://gitee.com/XXX/XXX.git</a>     XXX为你的用户名</p>
+<p>在url 下面添加 <code>root: ./XXX</code>     XXX为你的用户名</p>
+<p>4、推送hexo站点文件<br>之后就可以推送博客站点到gitee上了</p>
+<p>推送命令<br><code>hexo d</code><br>扩展：</p>
+<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
+<p>推送中会要求输入gitee的用户名和密码（如果不想每次都输可以<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a>，我这里就不做演示了）</p>
+<p>然后就可以看到gitee上有推上来的文件了</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/8.png"></p>
+<p>5、配置Pages服务<br>目前我们站点还无法访问需要开启Gitee Pages（gitee需要开启，github不需要）</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/9.png"></p>
+<p>审核通过启动我们就可以访问啦。</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/10.png"></p>
+<p>gitee上传新文件之后，需要手动更新一下，更新后的页面才会生效</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/11.png"></p>
+<p>多说一句：如果觉得这个访问路径太长了，我们可以去买一个域名，将该路径绑定到域名上，即可通过域名访问了。</p>
+<h4 id="四、GitHub上建站访问"><a href="#四、GitHub上建站访问" class="headerlink" title="四、GitHub上建站访问"></a>四、GitHub上建站访问</h4><p>在gitee上建站发现有限制条件，所有也可以采用github建站的方式。</p>
+<p>步骤和gitee一样。</p>
+<p>1、新建guthub仓库<br>仓库名称限制了为你的：用户名+.github.io</p>
+<p>2、安装hexo上传插件<br><code>npm install hexo-deployer-git --save</code><br>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
+<p><code>vim _config.yml #找到Deploymentdeploy:  type: git  repo: 你的github仓库路径  branch: master</code><br><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/12.png"></p>
+<p>4、推送站点到github<br><code>推送命令hexo d</code><br>推送过程中需要输入你的github用户名和密码。但是在2021年8月14日开始github官方就加强安全访问。不能通过原有账号密码git访问，密码需要用官方的token或者采用ssh公私钥访问。否则会出现鉴权失败（用户名密码错误）</p>
+<p>解决方式就是获取token，登录github设置setting-&gt;Developer Settings-&gt;Prosonal access tokens 创建一个新token。然后就可以拿这个token当密码输入了。用户名和token输入后，上传成功。</p>
+<p>建议使用<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a></p>
+<h4 id="5、尝试访问"><a href="#5、尝试访问" class="headerlink" title="5、尝试访问"></a>5、尝试访问</h4><p>输入你的仓库名称,即可访问成功。</p>
+<p><a href="https://xxx.github.io/">https://XXX.github.io/</a></p>
+<h4 id="五、更换主题"><a href="#五、更换主题" class="headerlink" title="五、更换主题"></a>五、更换主题</h4><p>到GitHub上搜索hexo主题或者hero自带的主题<a href="https://hexo.io/themes/%E3%80%82">https://hexo.io/themes/。</a></p>
+<p>1、找一个喜欢的。</p>
+<p>按照各自的主题文档上面一步步操作即可。</p>
+<p>一般步骤：</p>
+<p>1、下载解压2、放到主题包themes文件夹下面3、在hero配置文件_config.yml中修改为喜欢主题的名字4、hero server启动即可访问</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/13.png"></p>
+<h4 id="六、更新仓库"><a href="#六、更新仓库" class="headerlink" title="六、更新仓库"></a>六、更新仓库</h4><p>本地调试完之后。就可以更新到github上了</p>
+<p>//清理hexo clean//构建静态文件hexo g//上传至仓库hexo d</p>
+<h4 id="七、写文章"><a href="#七、写文章" class="headerlink" title="七、写文章"></a>七、写文章</h4><p>在站点文件夹中打开 git ，输入hexo new 博客名称。hexo会在source文件夹下_posts的创建一个markdowm的文件。这就是你要编写的文章。</p>
+<p>在上传更新到github上立马能够查看到。</p>
+<p>//清理hexo clean//构建静态文件hexo g//上传至仓库(上传报错多位网络原因，多上传几次即可)hexo d</p>
+<p>草稿箱<br>很多时候我们需要先写成草稿，而暂时不发布出去。draft page就可以满足我们的要求，我们的网站上是看不到草稿文件的。</p>
+<p>//新建草稿文件hexo new draft b//预览草稿文件hexo server –draft//发布草稿hexo publish b</p>
+<h4 id="八、新建页面"><a href="#八、新建页面" class="headerlink" title="八、新建页面"></a>八、新建页面</h4><p>有时我们不满足主题自由的一些页面，希望自己添加一些页面。</p>
+<p>我们可以新建页面,新建页面则会在hexo的source中新建该页面文件并生成md文件，这就是你要编辑的博客页了。</p>
+<p><code>hexo new page &quot;resouces&quot;</code></p>
+<p>然后打开主题的配置文件_config.yml，在菜单属性menu中的添加如下（注意不是Hexo的配置文件）</p>
+<p>将页面路径联接到页面上去</p>
+<p>菜单自定义名称：/生成的页面名称</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/14.png"></p>
+<p>当我们点击资源时后会跳转到我们自定义的博客页了</p>
+<h4 id="九、常见问题"><a href="#九、常见问题" class="headerlink" title="九、常见问题"></a>九、常见问题</h4><h5 id="1-文章插入图片"><a href="#1-文章插入图片" class="headerlink" title="1.文章插入图片"></a>1.文章插入图片</h5><p>1.设置站点配置_config.yml:将post_asset_folder: false改为post_asset_folder: true<br>安装插件:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code><br>运行hexo n “XXXXXX”,生成XXXXX.md博文时就会在/source/_posts目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。<br>添加图片:在想添加的位置写入<code>![](图片名字),例如![](1.png)</code>。</p>
+<h5 id="2-文章内跳转另一篇文章"><a href="#2-文章内跳转另一篇文章" class="headerlink" title="2.文章内跳转另一篇文章"></a>2.文章内跳转另一篇文章</h5><p><code>&#123;%post_link 文章名称(不加后缀) 显示文字%&#125;</code></p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>搭建</tag>
       </tags>
   </entry>
   <entry>

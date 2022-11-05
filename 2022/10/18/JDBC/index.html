@@ -193,7 +193,7 @@ J,"/>
 
 <h3 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h3><p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
 <p>简单来说简化jdbc开发步骤</p>
-<h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_20-02-10.png"></p>
+<h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_20-02-10.png"></p>
 <h5 id="1-创建user表-添加数据"><a href="#1-创建user表-添加数据" class="headerlink" title="1.创建user表,添加数据"></a>1.创建user表,添加数据</h5><p>在数据库中创建相应的表,添加数据</p>
 <h5 id="2-创建模块-导入坐标"><a href="#2-创建模块-导入坐标" class="headerlink" title="2.创建模块,导入坐标"></a>2.创建模块,导入坐标</h5><p>在idea中创建模块</p>
 <p><a target="_blank" rel="noopener" href="https://mybatis.net.cn/">mybatis官网</a>有maven导入坐标的代码</p>
@@ -216,12 +216,13 @@ J,"/>
 
 <p>(5)释放资源</p>
 <p>sqlSession.close();</p>
-<p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_20-52-46.png"></p>
-<h4 id="mapper代理"><a href="#mapper代理" class="headerlink" title="mapper代理"></a>mapper代理</h4><h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-06-02.png"></p>
+<p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_20-52-46.png"></p>
+<h4 id="mapper代理"><a href="#mapper代理" class="headerlink" title="mapper代理"></a>mapper代理</h4><h5 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的"></a>1.目的</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-06-02.png"></p>
 <h5 id="1-定义接口"><a href="#1-定义接口" class="headerlink" title="1.定义接口"></a>1.定义接口</h5><p>定义与SQL映射文件同名的Mapper接口，并且将Mapper接口和SQL映射文件放置在同一目录下</p>
 <p>在resources中新建directory 命名为将mapper接口的命名中的’.’改为’/‘</p>
-<p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-16-10.png"></p>
-<h5 id="2-设置namespace"><a href="#2-设置namespace" class="headerlink" title="2.设置namespace"></a>2.设置namespace<img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-20_21-25-02.png"></h5><p>设置SQL映射文件的namespace,属性为Mapper接口全限定名</p>
+<p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-16-10.png"></p>
+<h5 id="2-设置namespace"><a href="#2-设置namespace" class="headerlink" title="2.设置namespace"></a>2.设置namespace</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-20_21-25-02.png"></p>
+<p>设置SQL映射文件的namespace,属性为Mapper接口全限定名</p>
 <p>以上图为例则为 com.itheima.mapper.UserMapper</p>
 <h5 id="3-定义mapper方法"><a href="#3-定义mapper方法" class="headerlink" title="3.定义mapper方法"></a>3.定义mapper方法</h5><p>在Mapper接口中定义方法，方法名就是SQL映射文件中sql语句的id,并保持参数类型和返回值类型一致</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List &lt;pojo类名&gt; selectid();</span><br></pre></td></tr></table></figure>
@@ -253,8 +254,8 @@ J,"/>
 
 
 
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-21_19-16-30.png"></p>
-<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p><img src="D:\myblog\source_posts\JDBC\Snipaste_2022-10-21_19-29-59.png"></p>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-21_19-16-30.png"></p>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p><img src="/2022/10/18/JDBC/Snipaste_2022-10-21_19-29-59.png"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
