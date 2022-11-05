@@ -1107,13 +1107,110 @@
 <p><code>ctrl a\e</code>    光标移动到最左端</p>
 <p><code>ctrl ←\→</code>    光标跳跃单词移动</p>
 <p><code>ctrl l </code>==<code>clear</code>    清屏</p>
+<h4 id="2-软件安装"><a href="#2-软件安装" class="headerlink" title="2.软件安装"></a>2.软件安装</h4><ul>
+<li>CentOS系统使用：<ul>
+<li>yum [install remove search] [-y] 软件名称<ul>
+<li>install 安装</li>
+<li>remove 卸载</li>
+<li>search 搜索</li>
+<li>-y，自动确认</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ubuntu系统使用<ul>
+<li>apt [install remove search] [-y] 软件名称<ul>
+<li>install 安装</li>
+<li>remove 卸载</li>
+<li>search 搜索</li>
+<li>-y，自动确认</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>yum 和 apt 均需要root权限</p>
+</blockquote>
+<h4 id="3-systemctl"><a href="#3-systemctl" class="headerlink" title="3.systemctl"></a>3.systemctl</h4><p>功能：控制系统服务的启动关闭等</p>
+<p>语法：<code>systemctl start | stop | restart | disable | enable | status 服务名</code></p>
+<ul>
+<li>start，启动</li>
+<li>stop，停止</li>
+<li>status，查看状态</li>
+<li>disable，关闭开机自启</li>
+<li>enable，开启开机自启</li>
+<li>restart，重启</li>
+</ul>
+<h4 id="4-软链接"><a href="#4-软链接" class="headerlink" title="4.软链接"></a>4.软链接</h4><p>功能：创建文件、文件夹软链接（快捷方式）</p>
+<p>语法：<code>ln -s 参数1 参数2</code></p>
+<ul>
+<li>参数1：被链接的</li>
+<li>参数2：要链接去的地方（快捷方式的名称和存放位置）</li>
+</ul>
+<h4 id="4-日期"><a href="#4-日期" class="headerlink" title="4.日期"></a>4.日期</h4><p>语法：<code>date [-d] [+格式化字符串]</code></p>
+<ul>
+<li><p>-d 按照给定的字符串显示日期，一般用于日期计算</p>
+</li>
+<li><p>格式化字符串：通过特定的字符串标记，来控制显示的日期格式</p>
+<ul>
+<li>%Y   年%y   年份后两位数字 (00..99)</li>
+<li>%m   月份 (01..12)</li>
+<li>%d   日 (01..31)</li>
+<li>%H   小时 (00..23)</li>
+<li>%M   分钟 (00..59)</li>
+<li>%S   秒 (00..60)</li>
+<li>%s   自 1970-01-01 00:00:00 UTC 到现在的秒数</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li><p>按照2022-01-01的格式显示日期</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027220514.png" alt="image-20221027220514640"></p>
+</li>
+<li><p>按照2022-01-01 10:00:00的格式显示日期</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027220525.png" alt="image-20221027220525625"></p>
+</li>
+<li><p>-d选项日期计算</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027220429.png" alt="image-20221027220429831"></p>
+<ul>
+<li><p>支持的时间标记为：</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027220449.png" alt="image-20221027220449312"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-时区"><a href="#6-时区" class="headerlink" title="6.时区"></a>6.时区</h4><p>修改时区为中国时区</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027220554.png" alt="image-20221027220554654"></p>
+<h4 id="7-ntp"><a href="#7-ntp" class="headerlink" title="7.ntp"></a>7.ntp</h4><p>功能：同步时间</p>
+<p>安装：<code>yum install -y ntp</code></p>
+<p>启动管理：<code>systemctl start | stop | restart | status | disable | enable ntpd</code></p>
+<p>手动校准时间：<code>ntpdate -u ntp.aliyun.com</code></p>
+<h4 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h4><p>格式：a.b.c.d</p>
+<ul>
+<li>abcd为0~255的数字</li>
+</ul>
+<p>特殊IP：</p>
+<ul>
+<li>127.0.0.1，表示本机</li>
+<li>0.0.0.0<ul>
+<li>可以表示本机</li>
+<li>也可以表示任意IP（看使用场景）</li>
+</ul>
+</li>
+</ul>
+<p>查看ip：<code>ifconfig</code></p>
+<h4 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a>主机名</h4><p>功能：Linux系统的名称</p>
+<p>查看：<code>hostname</code></p>
+<p>设置：<code>hostnamectl set-hostname 主机名</code></p>
 ]]></content>
   </entry>
   <entry>
     <title>git-命令</title>
     <url>/2022/08/15/git-%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#x2e;&#x63;&#111;&#x6d;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
-<p>仓库地址 <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#101;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#101;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>:yyl1546139844/yyl.git</p>
+    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#101;&#101;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#101;&#101;&#x2e;&#99;&#x6f;&#109;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
+<p>仓库地址 <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x65;&#101;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x65;&#101;&#x2e;&#x63;&#111;&#109;</a>:yyl1546139844/yyl.git</p>
 ]]></content>
       <categories>
         <category>git</category>
@@ -1154,6 +1251,33 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode_JAVA</title>
+    <url>/2022/10/05/leetcode-JAVA/</url>
+    <content><![CDATA[<h5 id="1-两数相加"><a href="#1-两数相加" class="headerlink" title="1.两数相加"></a>1.两数相加</h5><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。你可以按任意顺序返回答案。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] TwoSum(<span class="type">int</span> [] nums,<span class="type">int</span> target)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i,j;</span><br><span class="line">        i=<span class="number">0</span>;j=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> [] sum=<span class="keyword">new</span> <span class="title class_">int</span>[] &#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            j=i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;nums.length;j++)</span><br><span class="line">                <span class="keyword">if</span> (nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    sum [<span class="number">0</span>]=i;sum [<span class="number">1</span>]=j;</span><br><span class="line">                    <span class="keyword">return</span> sum;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2.两数相加"></a>2.两数相加</h5><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。请你将两个数相加，并以相同形式返回一个表示和的链表。你可以假设除了数字 0 之外，这两个数都不会以 0 开头</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span><span class="number">0</span>;                                      <span class="comment">//用y记录两数相加是否大于十</span></span><br><span class="line">        ListNode p=l1;                                <span class="comment">//p指向l1第一个节点</span></span><br><span class="line">        ListNode q=l2;									<span class="comment">//q指向l2第一个节点</span></span><br><span class="line">        ListNode q_f=l2;								<span class="comment">//q_f指向q的前一个结点</span></span><br><span class="line">        <span class="keyword">while</span> (q!=<span class="literal">null</span> &amp;&amp; p!=<span class="literal">null</span>) &#123;                   <span class="comment">//首先计算l1和l2长度相同的节点值</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> p.val + q.val+y;                  <span class="comment">//y是上两个后大于十时候进的1</span></span><br><span class="line">            q.val=a%<span class="number">10</span>;                                <span class="comment">//将和存放在q中</span></span><br><span class="line">            <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)									<span class="comment">//判断和是否要进1</span></span><br><span class="line">                y = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                y = <span class="number">0</span>;</span><br><span class="line">            p=p.next;                                  <span class="comment">//p指向下一个节点</span></span><br><span class="line">            q_f=q;                                     <span class="comment">//q_f指向当前q节点</span></span><br><span class="line">            q=q.next;								<span class="comment">//q指向下一个节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//当前的状态是l1和l2相同长度的部分已经加完并且存放在l2当中,进数存放在y中,下一步需要将l1或l2中多出去的节点接在l2后面,即需要使得q_f节点的next指针指向多余节点的第一个节点,q节点指向多于节点的第一个节点.(若长的链表为l2则本身就满足此情况即不需要操作)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(q==<span class="literal">null</span> &amp;&amp;p!=<span class="literal">null</span>)					</span><br><span class="line">        &#123;q_f.next=p;q=q_f.next;&#125;                      <span class="comment">//完成上述操作</span></span><br><span class="line">        <span class="keyword">if</span>(y==<span class="number">0</span>)                                     <span class="comment">//没有需要进的数则直接返回</span></span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(q==<span class="literal">null</span>)&#123;                             <span class="comment">//两链表长度相同且需要进1</span></span><br><span class="line">                ListNode last=<span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">1</span>,<span class="literal">null</span>);  <span class="comment">//新建节点值为1接在q_f后面</span></span><br><span class="line">                q_f.next=last;</span><br><span class="line">                <span class="keyword">return</span> l2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (q!=<span class="literal">null</span> &amp;&amp; q.val==<span class="number">9</span>)         <span class="comment">//只要节点值为9才需要继续操作否则直接加一即可,所以找到最后一个q的节点,并且使得走过节点的值都为0(9+1=10),y不变还为1</span></span><br><span class="line">                &#123;</span><br><span class="line">                    q.val=<span class="number">0</span>;</span><br><span class="line">                    q_f=q;</span><br><span class="line">                    q=q.next;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (q==<span class="literal">null</span>)                      <span class="comment">//如果最后一个9是最后一个节点(类似19999999),新建节点值为1链接在最后</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ListNode last=<span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">1</span>,<span class="literal">null</span>);</span><br><span class="line">                    q_f.next=last;</span><br><span class="line">                    <span class="keyword">return</span> l2;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;q.val=q.val+<span class="number">1</span>;&#125;              <span class="comment">//否则直接加一返回</span></span><br><span class="line">                <span class="keyword">return</span> l2;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-最长字串"><a href="#3-最长字串" class="headerlink" title="3.最长字串"></a>3.最长字串</h5><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] schar= <span class="keyword">new</span> <span class="title class_">char</span>[s.length()];             <span class="comment">//字符串转为schar字符数组</span></span><br><span class="line">        schar=s.toCharArray();</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span> ,j=<span class="number">1</span>,n=<span class="number">1</span>,m=<span class="number">0</span>;                       <span class="comment">//n记录当前的无重子串长度,m记录历史中最长的无重子串长度</span></span><br><span class="line">        <span class="keyword">while</span> (i&lt;s.length()) &#123;                     </span><br><span class="line">            <span class="keyword">while</span> (j&lt;s.length()) &#123;</span><br><span class="line">                <span class="type">int</span> a=<span class="number">0</span>;							<span class="comment">//a记录是否有重复字符</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> l=i; l&lt;j; l++) &#123;          <span class="comment">//检查从i到j是否有重复</span></span><br><span class="line">                    <span class="keyword">if</span> (schar[l]==schar[j]) &#123;</span><br><span class="line">                        a =<span class="number">0</span>;                      <span class="comment">//若有重复,a置为0;跳出循环</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        a =<span class="number">1</span>;                       <span class="comment">//无重复a置为1</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (a==<span class="number">1</span>) &#123;                        <span class="comment">//无重复,当前无重复子串长度加一</span></span><br><span class="line">                    n=n+<span class="number">1</span>;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;                         <span class="comment">//有重复直接跳出循环</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (n&gt;m) &#123;                             <span class="comment">//如果当前子串长度大于记载的最大值则替换</span></span><br><span class="line">                m=n;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;                              <span class="comment">//若无重复从下一个i开始继续检测</span></span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">if</span>(j==i)&#123; j=j+<span class="number">1</span>;n=<span class="number">1</span>;&#125;             <span class="comment">//若ji相等则j加一,无重复子串长度为一</span></span><br><span class="line">                <span class="keyword">else</span>&#123; n=n-<span class="number">1</span>;&#125;                     <span class="comment">//i进了一位所以当前无重复子串减少一位</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;                                 <span class="comment">//如果有重复则从重复字符下一位开始检测</span></span><br><span class="line">                <span class="keyword">if</span>(i==l+<span class="number">1</span>)</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">                <span class="type">int</span> cont=l+<span class="number">1</span>-i;</span><br><span class="line">                i=l+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==i)&#123; j=j+<span class="number">1</span>;n=<span class="number">1</span>;&#125;</span><br><span class="line">                <span class="keyword">else</span>&#123; n=n-cont;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-中位数"><a href="#4-中位数" class="headerlink" title="4.中位数"></a>4.中位数</h5><p>给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n)) 。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> first.f1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; nums3=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();         <span class="comment">//nums3是动态数组</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;nums1.length &amp;&amp;j&lt;nums2.length)             <span class="comment">//依次比较数组大小</span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (nums1[i]&lt;nums2[j])</span><br><span class="line">                nums3.add(nums1[i++]);                    <span class="comment">//将小的值放入动态数组中</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nums3.add(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i==nums1.length)                             <span class="comment">//将数组的剩余部分放入动态数组中</span></span><br><span class="line">            <span class="keyword">while</span>(j&lt;nums2.length)</span><br><span class="line">                nums3.add(nums2[j++]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;nums1.length)</span><br><span class="line">                nums3.add(nums1[i++]);</span><br><span class="line">        <span class="keyword">if</span> ((nums1.length+nums2.length)%<span class="number">2</span>==<span class="number">1</span>)           <span class="comment">//根据动态数组长度,返回中位数</span></span><br><span class="line">            <span class="keyword">return</span> nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> ((<span class="type">double</span>)nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>)+(<span class="type">double</span>)nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>))/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-回文子串"><a href="#5-回文子串" class="headerlink" title="5.回文子串"></a>5.回文子串</h5><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode5</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] s1=<span class="keyword">new</span> <span class="title class_">char</span>[s.length()];          <span class="comment">//s1相当于s的字符数组</span></span><br><span class="line">        s1=s.toCharArray();                     </span><br><span class="line">        <span class="type">char</span>[] s2=<span class="keyword">new</span> <span class="title class_">char</span>[s.length()];			 <span class="comment">//用s2来匹配是否是回文字串</span></span><br><span class="line">        s2=s.toCharArray();</span><br><span class="line">        <span class="type">int</span> cont=<span class="number">0</span>;                              <span class="comment">//cont为回文子串长度</span></span><br><span class="line">        <span class="type">int</span> start=<span class="number">0</span>;                             <span class="comment">//start为回文子串开始的位置</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++) &#123;       <span class="comment">//从s1的第一个字符开始匹配</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j=i+cont;j&lt;s.length(); j++) &#123; <span class="comment">//从s2与s1相同的位置加上当前记录的最大回文子串的长度开始匹配</span></span><br><span class="line">                <span class="type">int</span> n=i;                           <span class="comment">//用m和n代替j和i防止j和i改变</span></span><br><span class="line">                <span class="type">int</span> m=j;</span><br><span class="line">                <span class="keyword">for</span> (; m&gt;=i; ) &#123;                   <span class="comment">//如果字符等则依次匹配</span></span><br><span class="line">                    <span class="keyword">if</span> (s2[m]==s1[n]) &#123;n++;m--;&#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;<span class="keyword">break</span>;&#125;                    <span class="comment">//如果不等则跳出循环</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (m&gt;=i) &#123;&#125;                         <span class="comment">//如果m大于i说明没有匹配完即i到j中间不是回文子串</span></span><br><span class="line">                <span class="keyword">else</span>  &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cont&lt;j-i+<span class="number">1</span>) &#123;               <span class="comment">//是回文子串则计算当前最大长度是否大于此回文子串长度,如果小于则替换</span></span><br><span class="line">                        cont=j-i+<span class="number">1</span>;</span><br><span class="line">                        start=i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span>[] s4=<span class="keyword">new</span> <span class="title class_">char</span>[cont];                <span class="comment">//s4存放最大回文子串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;cont;i++)                 <span class="comment">//从start开始的cont个字符就是最大回文子串</span></span><br><span class="line">            s4[i]=s1[start++];</span><br><span class="line">        String s5=<span class="keyword">new</span> <span class="title class_">String</span>(s4);</span><br><span class="line">        <span class="keyword">return</span> s5;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -1301,33 +1425,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode_JAVA</title>
-    <url>/2022/10/05/leetcode-JAVA/</url>
-    <content><![CDATA[<h5 id="1-两数相加"><a href="#1-两数相加" class="headerlink" title="1.两数相加"></a>1.两数相加</h5><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。你可以按任意顺序返回答案。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] TwoSum(<span class="type">int</span> [] nums,<span class="type">int</span> target)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i,j;</span><br><span class="line">        i=<span class="number">0</span>;j=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> [] sum=<span class="keyword">new</span> <span class="title class_">int</span>[] &#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            j=i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(;j&lt;nums.length;j++)</span><br><span class="line">                <span class="keyword">if</span> (nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    sum [<span class="number">0</span>]=i;sum [<span class="number">1</span>]=j;</span><br><span class="line">                    <span class="keyword">return</span> sum;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2.两数相加"></a>2.两数相加</h5><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。请你将两个数相加，并以相同形式返回一个表示和的链表。你可以假设除了数字 0 之外，这两个数都不会以 0 开头</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span><span class="number">0</span>;                                      <span class="comment">//用y记录两数相加是否大于十</span></span><br><span class="line">        ListNode p=l1;                                <span class="comment">//p指向l1第一个节点</span></span><br><span class="line">        ListNode q=l2;									<span class="comment">//q指向l2第一个节点</span></span><br><span class="line">        ListNode q_f=l2;								<span class="comment">//q_f指向q的前一个结点</span></span><br><span class="line">        <span class="keyword">while</span> (q!=<span class="literal">null</span> &amp;&amp; p!=<span class="literal">null</span>) &#123;                   <span class="comment">//首先计算l1和l2长度相同的节点值</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> p.val + q.val+y;                  <span class="comment">//y是上两个后大于十时候进的1</span></span><br><span class="line">            q.val=a%<span class="number">10</span>;                                <span class="comment">//将和存放在q中</span></span><br><span class="line">            <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)									<span class="comment">//判断和是否要进1</span></span><br><span class="line">                y = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                y = <span class="number">0</span>;</span><br><span class="line">            p=p.next;                                  <span class="comment">//p指向下一个节点</span></span><br><span class="line">            q_f=q;                                     <span class="comment">//q_f指向当前q节点</span></span><br><span class="line">            q=q.next;								<span class="comment">//q指向下一个节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//当前的状态是l1和l2相同长度的部分已经加完并且存放在l2当中,进数存放在y中,下一步需要将l1或l2中多出去的节点接在l2后面,即需要使得q_f节点的next指针指向多余节点的第一个节点,q节点指向多于节点的第一个节点.(若长的链表为l2则本身就满足此情况即不需要操作)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(q==<span class="literal">null</span> &amp;&amp;p!=<span class="literal">null</span>)					</span><br><span class="line">        &#123;q_f.next=p;q=q_f.next;&#125;                      <span class="comment">//完成上述操作</span></span><br><span class="line">        <span class="keyword">if</span>(y==<span class="number">0</span>)                                     <span class="comment">//没有需要进的数则直接返回</span></span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(q==<span class="literal">null</span>)&#123;                             <span class="comment">//两链表长度相同且需要进1</span></span><br><span class="line">                ListNode last=<span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">1</span>,<span class="literal">null</span>);  <span class="comment">//新建节点值为1接在q_f后面</span></span><br><span class="line">                q_f.next=last;</span><br><span class="line">                <span class="keyword">return</span> l2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (q!=<span class="literal">null</span> &amp;&amp; q.val==<span class="number">9</span>)         <span class="comment">//只要节点值为9才需要继续操作否则直接加一即可,所以找到最后一个q的节点,并且使得走过节点的值都为0(9+1=10),y不变还为1</span></span><br><span class="line">                &#123;</span><br><span class="line">                    q.val=<span class="number">0</span>;</span><br><span class="line">                    q_f=q;</span><br><span class="line">                    q=q.next;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (q==<span class="literal">null</span>)                      <span class="comment">//如果最后一个9是最后一个节点(类似19999999),新建节点值为1链接在最后</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ListNode last=<span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">1</span>,<span class="literal">null</span>);</span><br><span class="line">                    q_f.next=last;</span><br><span class="line">                    <span class="keyword">return</span> l2;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;q.val=q.val+<span class="number">1</span>;&#125;              <span class="comment">//否则直接加一返回</span></span><br><span class="line">                <span class="keyword">return</span> l2;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="3-最长字串"><a href="#3-最长字串" class="headerlink" title="3.最长字串"></a>3.最长字串</h5><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] schar= <span class="keyword">new</span> <span class="title class_">char</span>[s.length()];             <span class="comment">//字符串转为schar字符数组</span></span><br><span class="line">        schar=s.toCharArray();</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span> ,j=<span class="number">1</span>,n=<span class="number">1</span>,m=<span class="number">0</span>;                       <span class="comment">//n记录当前的无重子串长度,m记录历史中最长的无重子串长度</span></span><br><span class="line">        <span class="keyword">while</span> (i&lt;s.length()) &#123;                     </span><br><span class="line">            <span class="keyword">while</span> (j&lt;s.length()) &#123;</span><br><span class="line">                <span class="type">int</span> a=<span class="number">0</span>;							<span class="comment">//a记录是否有重复字符</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> l=i; l&lt;j; l++) &#123;          <span class="comment">//检查从i到j是否有重复</span></span><br><span class="line">                    <span class="keyword">if</span> (schar[l]==schar[j]) &#123;</span><br><span class="line">                        a =<span class="number">0</span>;                      <span class="comment">//若有重复,a置为0;跳出循环</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        a =<span class="number">1</span>;                       <span class="comment">//无重复a置为1</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (a==<span class="number">1</span>) &#123;                        <span class="comment">//无重复,当前无重复子串长度加一</span></span><br><span class="line">                    n=n+<span class="number">1</span>;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;                         <span class="comment">//有重复直接跳出循环</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (n&gt;m) &#123;                             <span class="comment">//如果当前子串长度大于记载的最大值则替换</span></span><br><span class="line">                m=n;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;                              <span class="comment">//若无重复从下一个i开始继续检测</span></span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">if</span>(j==i)&#123; j=j+<span class="number">1</span>;n=<span class="number">1</span>;&#125;             <span class="comment">//若ji相等则j加一,无重复子串长度为一</span></span><br><span class="line">                <span class="keyword">else</span>&#123; n=n-<span class="number">1</span>;&#125;                     <span class="comment">//i进了一位所以当前无重复子串减少一位</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;                                 <span class="comment">//如果有重复则从重复字符下一位开始检测</span></span><br><span class="line">                <span class="keyword">if</span>(i==l+<span class="number">1</span>)</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">                <span class="type">int</span> cont=l+<span class="number">1</span>-i;</span><br><span class="line">                i=l+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==i)&#123; j=j+<span class="number">1</span>;n=<span class="number">1</span>;&#125;</span><br><span class="line">                <span class="keyword">else</span>&#123; n=n-cont;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="4-中位数"><a href="#4-中位数" class="headerlink" title="4.中位数"></a>4.中位数</h5><p>给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n)) 。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> first.f1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; nums3=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();         <span class="comment">//nums3是动态数组</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;nums1.length &amp;&amp;j&lt;nums2.length)             <span class="comment">//依次比较数组大小</span></span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (nums1[i]&lt;nums2[j])</span><br><span class="line">                nums3.add(nums1[i++]);                    <span class="comment">//将小的值放入动态数组中</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nums3.add(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i==nums1.length)                             <span class="comment">//将数组的剩余部分放入动态数组中</span></span><br><span class="line">            <span class="keyword">while</span>(j&lt;nums2.length)</span><br><span class="line">                nums3.add(nums2[j++]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span>(i&lt;nums1.length)</span><br><span class="line">                nums3.add(nums1[i++]);</span><br><span class="line">        <span class="keyword">if</span> ((nums1.length+nums2.length)%<span class="number">2</span>==<span class="number">1</span>)           <span class="comment">//根据动态数组长度,返回中位数</span></span><br><span class="line">            <span class="keyword">return</span> nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> ((<span class="type">double</span>)nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>)+(<span class="type">double</span>)nums3.get((nums1.length+nums2.length-<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>))/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-回文子串"><a href="#5-回文子串" class="headerlink" title="5.回文子串"></a>5.回文子串</h5><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">leetcode5</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] s1=<span class="keyword">new</span> <span class="title class_">char</span>[s.length()];          <span class="comment">//s1相当于s的字符数组</span></span><br><span class="line">        s1=s.toCharArray();                     </span><br><span class="line">        <span class="type">char</span>[] s2=<span class="keyword">new</span> <span class="title class_">char</span>[s.length()];			 <span class="comment">//用s2来匹配是否是回文字串</span></span><br><span class="line">        s2=s.toCharArray();</span><br><span class="line">        <span class="type">int</span> cont=<span class="number">0</span>;                              <span class="comment">//cont为回文子串长度</span></span><br><span class="line">        <span class="type">int</span> start=<span class="number">0</span>;                             <span class="comment">//start为回文子串开始的位置</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++) &#123;       <span class="comment">//从s1的第一个字符开始匹配</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j=i+cont;j&lt;s.length(); j++) &#123; <span class="comment">//从s2与s1相同的位置加上当前记录的最大回文子串的长度开始匹配</span></span><br><span class="line">                <span class="type">int</span> n=i;                           <span class="comment">//用m和n代替j和i防止j和i改变</span></span><br><span class="line">                <span class="type">int</span> m=j;</span><br><span class="line">                <span class="keyword">for</span> (; m&gt;=i; ) &#123;                   <span class="comment">//如果字符等则依次匹配</span></span><br><span class="line">                    <span class="keyword">if</span> (s2[m]==s1[n]) &#123;n++;m--;&#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;<span class="keyword">break</span>;&#125;                    <span class="comment">//如果不等则跳出循环</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (m&gt;=i) &#123;&#125;                         <span class="comment">//如果m大于i说明没有匹配完即i到j中间不是回文子串</span></span><br><span class="line">                <span class="keyword">else</span>  &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cont&lt;j-i+<span class="number">1</span>) &#123;               <span class="comment">//是回文子串则计算当前最大长度是否大于此回文子串长度,如果小于则替换</span></span><br><span class="line">                        cont=j-i+<span class="number">1</span>;</span><br><span class="line">                        start=i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span>[] s4=<span class="keyword">new</span> <span class="title class_">char</span>[cont];                <span class="comment">//s4存放最大回文子串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;cont;i++)                 <span class="comment">//从start开始的cont个字符就是最大回文子串</span></span><br><span class="line">            s4[i]=s1[start++];</span><br><span class="line">        String s5=<span class="keyword">new</span> <span class="title class_">String</span>(s4);</span><br><span class="line">        <span class="keyword">return</span> s5;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>刷题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode</title>
     <url>/2022/08/16/leetcode/</url>
     <content><![CDATA[<p>C++解法</p>
@@ -1361,35 +1458,6 @@
       <tags>
         <tag>刷题</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>matlab</title>
-    <url>/2022/09/28/matlab/</url>
-    <content><![CDATA[<p>一.清空</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear all :清除workspace所以变量.</span><br><span class="line"></span><br><span class="line">clc : 清除命令.</span><br></pre></td></tr></table></figure>
-
-<p>二.注释</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%注释内容</span></span><br></pre></td></tr></table></figure>
-
-<p>三.数据类型</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span>                      <span class="comment">%数字</span></span><br><span class="line">ch=<span class="string">&#x27;a&#x27;</span>                   <span class="comment">%字符</span></span><br><span class="line"><span class="built_in">abs</span>(ch)                  <span class="comment">%ascll码</span></span><br><span class="line">char(<span class="number">97</span>)                 <span class="comment">%ascll为97的字符</span></span><br><span class="line">num2str(<span class="number">65</span>)              <span class="comment">%ans=65</span></span><br><span class="line">name=<span class="string">&#x27;zhangsan&#x27;</span>          <span class="comment">%字符串</span></span><br><span class="line"><span class="built_in">length</span>(name)             <span class="comment">%计算字符串长度</span></span><br><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="built_in">zeros</span>(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>)          <span class="comment">%10行 5列 三维矩阵 数值都为零</span></span><br><span class="line">E(:,:,<span class="number">1</span>) =<span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">2</span>) =<span class="built_in">randn</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">3</span>) =randi(<span class="number">10</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">A=cell(<span class="number">6</span>,<span class="number">6</span>)              <span class="comment">%六行六列元胞数组</span></span><br><span class="line">A=&#123;<span class="number">1</span>,<span class="number">2</span>&#125;=<span class="built_in">eye</span>(<span class="number">3</span>)           <span class="comment">%使得A的一行二列的值为三行三列的单位矩阵</span></span><br><span class="line">A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;=<span class="built_in">magic</span>(<span class="number">5</span>)          <span class="comment">%五行五列的列阵,行列相加值相等</span></span><br><span class="line">B=A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;                 <span class="comment">%赋值</span></span><br><span class="line">books = struct (<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;zhngsan&#x27;</span>,<span class="string">&#x27;lisi&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span> <span class="number">40</span>])<span class="comment">%结构体</span></span><br><span class="line">books.name(<span class="number">1</span>)            <span class="comment">%取细胞</span></span><br><span class="line">books.name&#123;<span class="number">1</span>&#125;            <span class="comment">%取值</span></span><br></pre></td></tr></table></figure>
-
-<p>四.随机数</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rand</span>                     <span class="comment">%0到1伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列0到1伪随机数矩阵</span></span><br><span class="line"><span class="built_in">randn</span>                    <span class="comment">%标准正态分布伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列标准正态分布伪随机数矩阵</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>])         <span class="comment">%区间内伪随机整数</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>],m,n)     </span><br></pre></td></tr></table></figure>
-
-<p>五.矩阵</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>                  <span class="comment">%1到9每隔2去一个数字</span></span><br><span class="line">F=<span class="built_in">repmat</span>(E,<span class="number">3</span>,<span class="number">3</span>)          <span class="comment">%把E矩阵三行三列重复</span></span><br><span class="line">D=<span class="built_in">ones</span>(<span class="number">4</span>,<span class="number">4</span>)              <span class="comment">%四行四列的值为一的矩阵</span></span><br><span class="line">A .* B                   <span class="comment">%对应项相乘</span></span><br><span class="line">A / B                    <span class="comment">%A乘以B的逆</span></span><br><span class="line">A ./ B                   <span class="comment">%对应项相除</span></span><br><span class="line">C=A(<span class="number">3</span>,:)                 <span class="comment">%取A的第三行</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)       <span class="comment">%找到A中大于二十的值的序列</span></span><br></pre></td></tr></table></figure>
-
-<p>六.程序结构</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">1</span>:<span class="number">10</span>             <span class="comment">%从1开始每次加1到10为止</span></span><br><span class="line">a=a+n;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&lt;<span class="number">10</span></span><br><span class="line">n=n+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">otherwise</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>七.二维绘图</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">10</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)</span><br><span class="line">title(<span class="string">&#x27;y=sin(x)&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span>:</span><br><span class="line">y1=<span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x):</span><br><span class="line">y2=<span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x):</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,HI,H2]=plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>)                 <span class="comment">%公用一个x轴绘图</span></span><br><span class="line">set (get (AX(<span class="number">1</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)</span><br><span class="line">set (get (AX(<span class="number">2</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiple Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)  <span class="comment">%三维绘图</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on               <span class="comment">%网格</span></span><br><span class="line">axis square           <span class="comment">%正方体</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>matlab</category>
-      </categories>
   </entry>
   <entry>
     <title>maven</title>
@@ -1427,6 +1495,135 @@
       </categories>
       <tags>
         <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>matlab</title>
+    <url>/2022/09/28/matlab/</url>
+    <content><![CDATA[<p>一.清空</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear all :清除workspace所以变量.</span><br><span class="line"></span><br><span class="line">clc : 清除命令.</span><br></pre></td></tr></table></figure>
+
+<p>二.注释</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%注释内容</span></span><br></pre></td></tr></table></figure>
+
+<p>三.数据类型</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span>                      <span class="comment">%数字</span></span><br><span class="line">ch=<span class="string">&#x27;a&#x27;</span>                   <span class="comment">%字符</span></span><br><span class="line"><span class="built_in">abs</span>(ch)                  <span class="comment">%ascll码</span></span><br><span class="line">char(<span class="number">97</span>)                 <span class="comment">%ascll为97的字符</span></span><br><span class="line">num2str(<span class="number">65</span>)              <span class="comment">%ans=65</span></span><br><span class="line">name=<span class="string">&#x27;zhangsan&#x27;</span>          <span class="comment">%字符串</span></span><br><span class="line"><span class="built_in">length</span>(name)             <span class="comment">%计算字符串长度</span></span><br><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="built_in">zeros</span>(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>)          <span class="comment">%10行 5列 三维矩阵 数值都为零</span></span><br><span class="line">E(:,:,<span class="number">1</span>) =<span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">2</span>) =<span class="built_in">randn</span>(<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">E(:,:,<span class="number">3</span>) =randi(<span class="number">10</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line">A=cell(<span class="number">6</span>,<span class="number">6</span>)              <span class="comment">%六行六列元胞数组</span></span><br><span class="line">A=&#123;<span class="number">1</span>,<span class="number">2</span>&#125;=<span class="built_in">eye</span>(<span class="number">3</span>)           <span class="comment">%使得A的一行二列的值为三行三列的单位矩阵</span></span><br><span class="line">A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;=<span class="built_in">magic</span>(<span class="number">5</span>)          <span class="comment">%五行五列的列阵,行列相加值相等</span></span><br><span class="line">B=A&#123;<span class="number">1</span>,<span class="number">3</span>&#125;                 <span class="comment">%赋值</span></span><br><span class="line">books = struct (<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;zhngsan&#x27;</span>,<span class="string">&#x27;lisi&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span> <span class="number">40</span>])<span class="comment">%结构体</span></span><br><span class="line">books.name(<span class="number">1</span>)            <span class="comment">%取细胞</span></span><br><span class="line">books.name&#123;<span class="number">1</span>&#125;            <span class="comment">%取值</span></span><br></pre></td></tr></table></figure>
+
+<p>四.随机数</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rand</span>                     <span class="comment">%0到1伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列0到1伪随机数矩阵</span></span><br><span class="line"><span class="built_in">randn</span>                    <span class="comment">%标准正态分布伪随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m,n)                <span class="comment">%m行n列标准正态分布伪随机数矩阵</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>])         <span class="comment">%区间内伪随机整数</span></span><br><span class="line">randi([<span class="built_in">min</span>,<span class="built_in">max</span>],m,n)     </span><br></pre></td></tr></table></figure>
+
+<p>五.矩阵</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> ; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>] <span class="comment">%矩阵</span></span><br><span class="line">B=A&#x27;                     <span class="comment">%矩阵转置</span></span><br><span class="line">C=A(:)                   <span class="comment">%矩阵竖着排列</span></span><br><span class="line">D=inv(A)                 <span class="comment">%矩阵求逆矩阵</span></span><br><span class="line">E=<span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>                  <span class="comment">%1到9每隔2去一个数字</span></span><br><span class="line">F=<span class="built_in">repmat</span>(E,<span class="number">3</span>,<span class="number">3</span>)          <span class="comment">%把E矩阵三行三列重复</span></span><br><span class="line">D=<span class="built_in">ones</span>(<span class="number">4</span>,<span class="number">4</span>)              <span class="comment">%四行四列的值为一的矩阵</span></span><br><span class="line">A .* B                   <span class="comment">%对应项相乘</span></span><br><span class="line">A / B                    <span class="comment">%A乘以B的逆</span></span><br><span class="line">A ./ B                   <span class="comment">%对应项相除</span></span><br><span class="line">C=A(<span class="number">3</span>,:)                 <span class="comment">%取A的第三行</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)       <span class="comment">%找到A中大于二十的值的序列</span></span><br></pre></td></tr></table></figure>
+
+<p>六.程序结构</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">1</span>:<span class="number">10</span>             <span class="comment">%从1开始每次加1到10为止</span></span><br><span class="line">a=a+n;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&lt;<span class="number">10</span></span><br><span class="line">n=n+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">otherwise</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>七.二维绘图</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">10</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)</span><br><span class="line">title(<span class="string">&#x27;y=sin(x)&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)</span><br><span class="line">xlim([<span class="number">0</span> <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">x=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span>:</span><br><span class="line">y1=<span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x):</span><br><span class="line">y2=<span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x):</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,HI,H2]=plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>)                 <span class="comment">%公用一个x轴绘图</span></span><br><span class="line">set (get (AX(<span class="number">1</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)</span><br><span class="line">set (get (AX(<span class="number">2</span>);<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiple Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)  <span class="comment">%三维绘图</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on               <span class="comment">%网格</span></span><br><span class="line">axis square           <span class="comment">%正方体</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>matlab</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>运行命令</title>
+    <url>/2022/08/15/%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="win-r"><a href="#win-r" class="headerlink" title="win + r"></a>win + r</h1><p>gpedit.msc 本地组策略编辑器</p>
+<p>regedit 注册表编辑器</p>
+<p>shell：文件夹   打开</p>
+<p>msconfig 系统配置</p>
+<p>cmd 终端</p>
+<p>services.msc  本地服务</p>
+]]></content>
+      <categories>
+        <category>windows运行</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客搭建</title>
+    <url>/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h3 id="Hexo零基础搭建个人博客"><a href="#Hexo零基础搭建个人博客" class="headerlink" title="Hexo零基础搭建个人博客"></a>Hexo零基础搭建个人博客</h3><p>Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress<br>插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有<br>数百个主题和插件。</p>
+<h4 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h4><p>1、安装Node.js<br>直接到官网上下载安装即可<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+<p>Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br>Node自带npm<br>2、安装Git<br>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a>.<br>Mac：使用 Homebrew, <a href="https://www.macports.org/">MacPorts</a> 或者下载 安装程序。<br>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code><br>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/1.png"></p>
+<p>npm下载慢的话也可以下载淘宝下载源cnpm</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<h4 id="二、开始安装Hexo"><a href="#二、开始安装Hexo" class="headerlink" title="二、开始安装Hexo"></a>二、开始安装Hexo</h4><p>1、安装hexo(cd进入到你要创立博客的文件内)<br><code>npm install -g hexo-cli</code><br><code>或者</code><br><code>cnpm install -g hexo-cli</code><br>安装完成可输入hexo -v查看版本</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2.png"></p>
+<p>2、初始化hexo，新建存储博客的文件夹<br><code>hexo init myblog</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/3.png"></p>
+<p>3、进入文件夹，安装一下npm<br>cd myblog<br>npm install<br>可以看到我们的hexo站点就已经安装好了，接下来就可以直接启动他了</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/4.png"></p>
+<p>4、启动服务站点<br><code>hexo g</code><br><code>hexo server</code></p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/5.png"></p>
+<p>访问<a href="http://localhost:4000/">http://localhost:4000/</a> 至此hero就搭建好了。可以在本地访问了</p>
+<h4 id="三、Gitee上建站访问"><a href="#三、Gitee上建站访问" class="headerlink" title="三、Gitee上建站访问"></a>三、Gitee上建站访问</h4><p>可在github或者gitee上建站，gitee国内访问快一些</p>
+<p>1、新建仓库<br>仓库名和路径格式必须是：用户名 只有这样，将来要部署到Gite e page的时候，才会被识别.</p>
+<p>2、将hexo博客站点上传到gitee上<br>这里需要安装一个hexo的上传插件deploy-git</p>
+<p><code>npm install hexo-deployer-git --save</code></p>
+<p>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
+<p>找到Deployment加上（注意空格）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 你的仓库路径</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/7.png"></p>
+<p>在URL中找到url地址改为<a href="https://gitee.com/XXX/XXX.git">https://gitee.com/XXX/XXX.git</a>     XXX为你的用户名</p>
+<p>在url 下面添加 <code>root: ./XXX</code>     XXX为你的用户名</p>
+<p>4、推送hexo站点文件<br>之后就可以推送博客站点到gitee上了</p>
+<p>推送命令<br><code>hexo d</code><br>扩展：</p>
+<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
+<p>推送中会要求输入gitee的用户名和密码（如果不想每次都输可以<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a>，我这里就不做演示了）</p>
+<p>然后就可以看到gitee上有推上来的文件了</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/8.png"></p>
+<p>5、配置Pages服务<br>目前我们站点还无法访问需要开启Gitee Pages（gitee需要开启，github不需要）</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/9.png"></p>
+<p>审核通过启动我们就可以访问啦。</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/10.png"></p>
+<p>gitee上传新文件之后，需要手动更新一下，更新后的页面才会生效</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/11.png"></p>
+<p>多说一句：如果觉得这个访问路径太长了，我们可以去买一个域名，将该路径绑定到域名上，即可通过域名访问了。</p>
+<h4 id="四、GitHub上建站访问"><a href="#四、GitHub上建站访问" class="headerlink" title="四、GitHub上建站访问"></a>四、GitHub上建站访问</h4><p>在gitee上建站发现有限制条件，所有也可以采用github建站的方式。</p>
+<p>步骤和gitee一样。</p>
+<p>1、新建guthub仓库<br>仓库名称限制了为你的：用户名+.github.io</p>
+<p>2、安装hexo上传插件<br><code>npm install hexo-deployer-git --save</code><br>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
+<p><code>vim _config.yml #找到Deploymentdeploy:  type: git  repo: 你的github仓库路径  branch: master</code><br><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/12.png"></p>
+<p>4、推送站点到github<br><code>推送命令hexo d</code><br>推送过程中需要输入你的github用户名和密码。但是在2021年8月14日开始github官方就加强安全访问。不能通过原有账号密码git访问，密码需要用官方的token或者采用ssh公私钥访问。否则会出现鉴权失败（用户名密码错误）</p>
+<p>解决方式就是获取token，登录github设置setting-&gt;Developer Settings-&gt;Prosonal access tokens 创建一个新token。然后就可以拿这个token当密码输入了。用户名和token输入后，上传成功。</p>
+<p>建议使用<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a></p>
+<h4 id="5、尝试访问"><a href="#5、尝试访问" class="headerlink" title="5、尝试访问"></a>5、尝试访问</h4><p>输入你的仓库名称,即可访问成功。</p>
+<p><a href="https://xxx.github.io/">https://XXX.github.io/</a></p>
+<h4 id="五、更换主题"><a href="#五、更换主题" class="headerlink" title="五、更换主题"></a>五、更换主题</h4><p>到GitHub上搜索hexo主题或者hero自带的主题<a href="https://hexo.io/themes/%E3%80%82">https://hexo.io/themes/。</a></p>
+<p>1、找一个喜欢的。</p>
+<p>按照各自的主题文档上面一步步操作即可。</p>
+<p>一般步骤：</p>
+<p>1、下载解压2、放到主题包themes文件夹下面3、在hero配置文件_config.yml中修改为喜欢主题的名字4、hero server启动即可访问</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/13.png"></p>
+<h4 id="六、更新仓库"><a href="#六、更新仓库" class="headerlink" title="六、更新仓库"></a>六、更新仓库</h4><p>本地调试完之后。就可以更新到github上了</p>
+<p>//清理hexo clean//构建静态文件hexo g//上传至仓库hexo d</p>
+<h4 id="七、写文章"><a href="#七、写文章" class="headerlink" title="七、写文章"></a>七、写文章</h4><p>在站点文件夹中打开 git ，输入hexo new 博客名称。hexo会在source文件夹下_posts的创建一个markdowm的文件。这就是你要编写的文章。</p>
+<p>在上传更新到github上立马能够查看到。</p>
+<p>//清理hexo clean//构建静态文件hexo g//上传至仓库(上传报错多位网络原因，多上传几次即可)hexo d</p>
+<p>草稿箱<br>很多时候我们需要先写成草稿，而暂时不发布出去。draft page就可以满足我们的要求，我们的网站上是看不到草稿文件的。</p>
+<p>//新建草稿文件hexo new draft b//预览草稿文件hexo server –draft//发布草稿hexo publish b</p>
+<h4 id="八、新建页面"><a href="#八、新建页面" class="headerlink" title="八、新建页面"></a>八、新建页面</h4><p>有时我们不满足主题自由的一些页面，希望自己添加一些页面。</p>
+<p>我们可以新建页面,新建页面则会在hexo的source中新建该页面文件并生成md文件，这就是你要编辑的博客页了。</p>
+<p><code>hexo new page &quot;resouces&quot;</code></p>
+<p>然后打开主题的配置文件_config.yml，在菜单属性menu中的添加如下（注意不是Hexo的配置文件）</p>
+<p>将页面路径联接到页面上去</p>
+<p>菜单自定义名称：/生成的页面名称</p>
+<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/14.png"></p>
+<p>当我们点击资源时后会跳转到我们自定义的博客页了</p>
+<h4 id="九、常见问题"><a href="#九、常见问题" class="headerlink" title="九、常见问题"></a>九、常见问题</h4><h5 id="1-文章插入图片"><a href="#1-文章插入图片" class="headerlink" title="1.文章插入图片"></a>1.文章插入图片</h5><p>1.设置站点配置_config.yml:将post_asset_folder: false改为post_asset_folder: true<br>安装插件:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code><br>运行hexo n “XXXXXX”,生成XXXXX.md博文时就会在/source/_posts目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。<br>添加图片:在想添加的位置写入<code>![](图片名字),例如![](1.png)</code>。</p>
+<h5 id="2-文章内跳转另一篇文章"><a href="#2-文章内跳转另一篇文章" class="headerlink" title="2.文章内跳转另一篇文章"></a>2.文章内跳转另一篇文章</h5><p><code>&#123;%post_link 文章名称(不加后缀) 显示文字%&#125;</code></p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>搭建</tag>
       </tags>
   </entry>
   <entry>
@@ -1559,106 +1756,6 @@
       </categories>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>运行命令</title>
-    <url>/2022/08/15/%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="win-r"><a href="#win-r" class="headerlink" title="win + r"></a>win + r</h1><p>gpedit.msc 本地组策略编辑器</p>
-<p>regedit 注册表编辑器</p>
-<p>shell：文件夹   打开</p>
-<p>msconfig 系统配置</p>
-<p>cmd 终端</p>
-<p>services.msc  本地服务</p>
-]]></content>
-      <categories>
-        <category>windows运行</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客搭建</title>
-    <url>/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h3 id="Hexo零基础搭建个人博客"><a href="#Hexo零基础搭建个人博客" class="headerlink" title="Hexo零基础搭建个人博客"></a>Hexo零基础搭建个人博客</h3><p>Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress<br>插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有<br>数百个主题和插件。</p>
-<h4 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h4><p>1、安装Node.js<br>直接到官网上下载安装即可<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
-<p>Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br>Node自带npm<br>2、安装Git<br>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a>.<br>Mac：使用 Homebrew, <a href="https://www.macports.org/">MacPorts</a> 或者下载 安装程序。<br>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code><br>Linux (Fedora, Red Hat, CentOS)：<code>sudo yum install git-core</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/1.png"></p>
-<p>npm下载慢的话也可以下载淘宝下载源cnpm</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<h4 id="二、开始安装Hexo"><a href="#二、开始安装Hexo" class="headerlink" title="二、开始安装Hexo"></a>二、开始安装Hexo</h4><p>1、安装hexo(cd进入到你要创立博客的文件内)<br><code>npm install -g hexo-cli</code><br><code>或者</code><br><code>cnpm install -g hexo-cli</code><br>安装完成可输入hexo -v查看版本</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2.png"></p>
-<p>2、初始化hexo，新建存储博客的文件夹<br><code>hexo init myblog</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/3.png"></p>
-<p>3、进入文件夹，安装一下npm<br>cd myblog<br>npm install<br>可以看到我们的hexo站点就已经安装好了，接下来就可以直接启动他了</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/4.png"></p>
-<p>4、启动服务站点<br><code>hexo g</code><br><code>hexo server</code></p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/5.png"></p>
-<p>访问<a href="http://localhost:4000/">http://localhost:4000/</a> 至此hero就搭建好了。可以在本地访问了</p>
-<h4 id="三、Gitee上建站访问"><a href="#三、Gitee上建站访问" class="headerlink" title="三、Gitee上建站访问"></a>三、Gitee上建站访问</h4><p>可在github或者gitee上建站，gitee国内访问快一些</p>
-<p>1、新建仓库<br>仓库名和路径格式必须是：用户名 只有这样，将来要部署到Gite e page的时候，才会被识别.</p>
-<p>2、将hexo博客站点上传到gitee上<br>这里需要安装一个hexo的上传插件deploy-git</p>
-<p><code>npm install hexo-deployer-git --save</code></p>
-<p>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
-<p>找到Deployment加上（注意空格）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 你的仓库路径</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/7.png"></p>
-<p>在URL中找到url地址改为<a href="https://gitee.com/XXX/XXX.git">https://gitee.com/XXX/XXX.git</a>     XXX为你的用户名</p>
-<p>在url 下面添加 <code>root: ./XXX</code>     XXX为你的用户名</p>
-<p>4、推送hexo站点文件<br>之后就可以推送博客站点到gitee上了</p>
-<p>推送命令<br><code>hexo d</code><br>扩展：</p>
-<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br><code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
-<p>推送中会要求输入gitee的用户名和密码（如果不想每次都输可以<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a>，我这里就不做演示了）</p>
-<p>然后就可以看到gitee上有推上来的文件了</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/8.png"></p>
-<p>5、配置Pages服务<br>目前我们站点还无法访问需要开启Gitee Pages（gitee需要开启，github不需要）</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/9.png"></p>
-<p>审核通过启动我们就可以访问啦。</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/10.png"></p>
-<p>gitee上传新文件之后，需要手动更新一下，更新后的页面才会生效</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/11.png"></p>
-<p>多说一句：如果觉得这个访问路径太长了，我们可以去买一个域名，将该路径绑定到域名上，即可通过域名访问了。</p>
-<h4 id="四、GitHub上建站访问"><a href="#四、GitHub上建站访问" class="headerlink" title="四、GitHub上建站访问"></a>四、GitHub上建站访问</h4><p>在gitee上建站发现有限制条件，所有也可以采用github建站的方式。</p>
-<p>步骤和gitee一样。</p>
-<p>1、新建guthub仓库<br>仓库名称限制了为你的：用户名+.github.io</p>
-<p>2、安装hexo上传插件<br><code>npm install hexo-deployer-git --save</code><br>3、修改hexo配置文件指定仓库路径<br>可在文件夹中直接打开文件，也可通过vim直接编辑</p>
-<p><code>vim _config.yml #找到Deploymentdeploy:  type: git  repo: 你的github仓库路径  branch: master</code><br><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/12.png"></p>
-<p>4、推送站点到github<br><code>推送命令hexo d</code><br>推送过程中需要输入你的github用户名和密码。但是在2021年8月14日开始github官方就加强安全访问。不能通过原有账号密码git访问，密码需要用官方的token或者采用ssh公私钥访问。否则会出现鉴权失败（用户名密码错误）</p>
-<p>解决方式就是获取token，登录github设置setting-&gt;Developer Settings-&gt;Prosonal access tokens 创建一个新token。然后就可以拿这个token当密码输入了。用户名和token输入后，上传成功。</p>
-<p>建议使用<a href="/2022/08/18/%E9%85%8D%E7%BD%AEssh/" title="配置ssh">配置ssh</a></p>
-<h4 id="5、尝试访问"><a href="#5、尝试访问" class="headerlink" title="5、尝试访问"></a>5、尝试访问</h4><p>输入你的仓库名称,即可访问成功。</p>
-<p><a href="https://xxx.github.io/">https://XXX.github.io/</a></p>
-<h4 id="五、更换主题"><a href="#五、更换主题" class="headerlink" title="五、更换主题"></a>五、更换主题</h4><p>到GitHub上搜索hexo主题或者hero自带的主题<a href="https://hexo.io/themes/%E3%80%82">https://hexo.io/themes/。</a></p>
-<p>1、找一个喜欢的。</p>
-<p>按照各自的主题文档上面一步步操作即可。</p>
-<p>一般步骤：</p>
-<p>1、下载解压2、放到主题包themes文件夹下面3、在hero配置文件_config.yml中修改为喜欢主题的名字4、hero server启动即可访问</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/13.png"></p>
-<h4 id="六、更新仓库"><a href="#六、更新仓库" class="headerlink" title="六、更新仓库"></a>六、更新仓库</h4><p>本地调试完之后。就可以更新到github上了</p>
-<p>//清理hexo clean//构建静态文件hexo g//上传至仓库hexo d</p>
-<h4 id="七、写文章"><a href="#七、写文章" class="headerlink" title="七、写文章"></a>七、写文章</h4><p>在站点文件夹中打开 git ，输入hexo new 博客名称。hexo会在source文件夹下_posts的创建一个markdowm的文件。这就是你要编写的文章。</p>
-<p>在上传更新到github上立马能够查看到。</p>
-<p>//清理hexo clean//构建静态文件hexo g//上传至仓库(上传报错多位网络原因，多上传几次即可)hexo d</p>
-<p>草稿箱<br>很多时候我们需要先写成草稿，而暂时不发布出去。draft page就可以满足我们的要求，我们的网站上是看不到草稿文件的。</p>
-<p>//新建草稿文件hexo new draft b//预览草稿文件hexo server –draft//发布草稿hexo publish b</p>
-<h4 id="八、新建页面"><a href="#八、新建页面" class="headerlink" title="八、新建页面"></a>八、新建页面</h4><p>有时我们不满足主题自由的一些页面，希望自己添加一些页面。</p>
-<p>我们可以新建页面,新建页面则会在hexo的source中新建该页面文件并生成md文件，这就是你要编辑的博客页了。</p>
-<p><code>hexo new page &quot;resouces&quot;</code></p>
-<p>然后打开主题的配置文件_config.yml，在菜单属性menu中的添加如下（注意不是Hexo的配置文件）</p>
-<p>将页面路径联接到页面上去</p>
-<p>菜单自定义名称：/生成的页面名称</p>
-<p><img src="/2022/08/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/14.png"></p>
-<p>当我们点击资源时后会跳转到我们自定义的博客页了</p>
-<h4 id="九、常见问题"><a href="#九、常见问题" class="headerlink" title="九、常见问题"></a>九、常见问题</h4><h5 id="1-文章插入图片"><a href="#1-文章插入图片" class="headerlink" title="1.文章插入图片"></a>1.文章插入图片</h5><p>1.设置站点配置_config.yml:将post_asset_folder: false改为post_asset_folder: true<br>安装插件:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code><br>运行hexo n “XXXXXX”,生成XXXXX.md博文时就会在/source/_posts目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。<br>添加图片:在想添加的位置写入<code>![](图片名字),例如![](1.png)</code>。</p>
-<h5 id="2-文章内跳转另一篇文章"><a href="#2-文章内跳转另一篇文章" class="headerlink" title="2.文章内跳转另一篇文章"></a>2.文章内跳转另一篇文章</h5><p><code>&#123;%post_link 文章名称(不加后缀) 显示文字%&#125;</code></p>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>搭建</tag>
       </tags>
   </entry>
   <entry>
