@@ -75,43 +75,43 @@
             <h3 id="一-javaweb"><a href="#一-javaweb" class="headerlink" title="一.javaweb"></a>一.javaweb</h3><h4 id="1-什么是JavaWeb"><a href="#1-什么是JavaWeb" class="headerlink" title="1.什么是JavaWeb?"></a>1.什么是JavaWeb?</h4><p>Web:全球广域网，也称为万维网(www),能够通过刘览器访问的网站<br>JavaWeb:是用Java技术来解决相关web互联网领域的技术栈</p>
 <h4 id="2-JavaWeb技术栈"><a href="#2-JavaWeb技术栈" class="headerlink" title="2.JavaWeb技术栈"></a>2.JavaWeb技术栈</h4><p>B/S架构：Browser/Server,浏览器/服务器架构模式，它的特点是，客户端只需要浏览器，应用程序的逻辑和数<br>据都存储在服务器端。浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可</p>
 <p>好处：易于维护升级：服务器端升级后，客户端无需任何部署就可以使用到新的版本</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-03-19.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-03-19.png"></p>
 <p>静态资源：HTML、CSS、JavaScript、图片等。负责页面展现<br>动态资源：Servlet、JSP等。负责逻辑处理<br>数据库：负责存储数据</p>
 <p>HTTP协议：定义通信规则<br>Web服务器·负责解析HT工P协议解析请求数据并发送响应数据</p>
 <h3 id="二-HTTP"><a href="#二-HTTP" class="headerlink" title="二.HTTP"></a>二.HTTP</h3><p>概念：HyperText Transfer Protocol,.超文本传输协议，规定了浏览器和服务器之间数据传输的规侧</p>
 <h4 id="HTTP协议特点："><a href="#HTTP协议特点：" class="headerlink" title="HTTP协议特点："></a>HTTP协议特点：</h4><p>1.基于TCP协议：面向连接，安全<br>2..基于请求-响应模型的：一次请求对应一次响应<br>3.HTTP协议是无状态的协议：对于事务处理没有记忆能力。每次请求-响应都是独立的。<br>缺点：多次请求间不能共享数据。<br>优点：速度快</p>
-<h4 id="HTTP请求数据格式"><a href="#HTTP请求数据格式" class="headerlink" title="HTTP请求数据格式"></a>HTTP请求数据格式</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-19-15.png"></p>
+<h4 id="HTTP请求数据格式"><a href="#HTTP请求数据格式" class="headerlink" title="HTTP请求数据格式"></a>HTTP请求数据格式</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-19-15.png"></p>
 <p>请求数据分为3部分：<br>1.请求行：请求数据的第一行。其中GET表示请求方式，/<br>表示请求资源路径，HTTP/1.1表示协议版本<br>2.请求头：第二行开始，格式为key:value形式。<br>3.请求体：POST请求的最后一部分，存放请求参数</p>
 <p>GET请求和POST请求区别：<br>1.GET请求请求参数在请求行中，没有请求体。<br>POST请求请求参数在请求体中<br>2.GET请求请求参数大小有限制，POST没有</p>
 <p>常见的HTTP请求头：<br>Host:表示请求的主机名<br>User-Agent::浏览器版本，例如Chrome浏览器的标识类似Mozilla/5.0<br>Chrome/79,IE浏览器的标识类似Mozilla/5.0(Windows NT)like Gecko;<br>Accept:表示浏览器能接收的资源类型，如text/*,,image,/<em>或者</em>/*表示所有；<br>Accept–Language:表示浏览器偏好的语言，服务器可以据此返回不同语言的网页；<br>Accept-.Encoding:表示浏览器可以支持的压缩类型，例如gzip,deflates等。</p>
 <p>请求体</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-20-09.png"></p>
-<h4 id="HTTP响应数据格式"><a href="#HTTP响应数据格式" class="headerlink" title="HTTP响应数据格式"></a>HTTP响应数据格式</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-23-02.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-20-09.png"></p>
+<h4 id="HTTP响应数据格式"><a href="#HTTP响应数据格式" class="headerlink" title="HTTP响应数据格式"></a>HTTP响应数据格式</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-23-02.png"></p>
 <p>响应数据分为3部分：<br>1.响应行：响应数据的第一行。其中HTTP/1.1表示协议版本，200表示<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/chapter/13553">响应状态码</a>，OK表示状态码描述</p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-24-08.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_18-28-42.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-24-08.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_18-28-42.png"></p>
 <p>2.响应头：第二行开始，格式为key:value形式</p>
 <p>常见的HTTP响应头：<br>Content–Type:表示该响应内容的类型，例如text/html,<br>image/jpeg;<br>Content-Length:表示该响应内容的长度（字节数）；<br>Content-Encoding:表示该响应压缩算法，例如gzip;<br>Cache-Control:指示客户端应如何缓存，例如max-age=300<br>表示可以最多缓存300秒</p>
 <p>3.响应体：最后一部分。存放响应数据</p>
 <h3 id="三-Tomcat"><a href="#三-Tomcat" class="headerlink" title="三.Tomcat"></a>三.Tomcat</h3><p>·概念：<a target="_blank" rel="noopener" href="https://tomcat.apache.org/">Tomcat</a>是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet/JSP<br>少量JavaEE规范。<br>。JavaEE:Java Enterprise Edition,Java企业版。指）ava企业级开发的技术规范总和。包含l3项技术规范：JDBC<br>、JNDl、EJB、RMl、JSP、Servlet、XML、JMS、Java IDL、JTS、JTA、JavaMail、.JAF<br>Tomcat也被称为Web容器、Servlet容器。Servlet需要依赖于Tomcat才能运行</p>
 <h4 id="配置和部署项目"><a href="#配置和部署项目" class="headerlink" title="配置和部署项目"></a>配置和部署项目</h4><h5 id="1-端口号"><a href="#1-端口号" class="headerlink" title="1.端口号"></a>1.端口号</h5><p>server.xml中的connector标签进行修改</p>
 <h5 id="2-部署项目"><a href="#2-部署项目" class="headerlink" title="2.部署项目"></a>2.部署项目</h5><p>Tomcat部署项目：<br>将项目放置到webapps目录下，即部署完成<br>一般JavaWeb2项目会被打成war包，然后将war包放到webapps目<br>录下，Tomcat会自动解压缩war文件</p>
-<h5 id="2-Tomcat-web项目结构"><a href="#2-Tomcat-web项目结构" class="headerlink" title="2.Tomcat-web项目结构"></a>2.Tomcat-web项目结构</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_20-26-32.png"></p>
+<h5 id="2-Tomcat-web项目结构"><a href="#2-Tomcat-web项目结构" class="headerlink" title="2.Tomcat-web项目结构"></a>2.Tomcat-web项目结构</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_20-26-32.png"></p>
 <p>点击项目＋f4打开项目设置</p>
 <p>点击facets选择该项目点击右侧两个加号可以直接生成web相关文件夹</p>
-<h5 id="3-idea集成本地tomcat"><a href="#3-idea集成本地tomcat" class="headerlink" title="3.idea集成本地tomcat"></a>3.idea集成本地tomcat</h5><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_20-47-16.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-00-44.png"></p>
-<h4 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-36-18.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-35-28.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-39-03.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-44-05.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-50-16.png" alt="Snipaste_2022-10-22_21-50-16"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-51-27.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-22_21-52-25.png"></p>
+<h5 id="3-idea集成本地tomcat"><a href="#3-idea集成本地tomcat" class="headerlink" title="3.idea集成本地tomcat"></a>3.idea集成本地tomcat</h5><p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_20-47-16.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-00-44.png"></p>
+<h4 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-36-18.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-35-28.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-39-03.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-44-05.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-50-16.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-51-27.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-22_21-52-25.png"></p>
 <p>当两个路径相同时优先访问优先级高的</p>
 <p>DefaultServlet被覆盖掉后静态页面将会无法访问</p>
-<h4 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h4><p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_18-35-02.png"></p>
-<p><img src="D:\myblog\source_posts\java-web\Snipaste_2022-10-23_19-36-13.png"></p>
+<h4 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h4><p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_18-35-02.png"></p>
+<p><img src="/2022/10/22/java-web/Snipaste_2022-10-23_19-36-13.png"></p>
 <p>通过request对象的相关方法获取数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">req.setCharacterEncoding(&quot;UTF-8&quot;);           //改变字符输入流编码方式防止Post乱码</span><br><span class="line"></span><br><span class="line">byte[] bytes = name.getBytes(StandardCharsets.ISO_8859_1);  //解决GET请求方式乱码问题,将乱码通过ISO_8859_1编码成char数组,再通过UTF_8解码成汉字</span><br><span class="line">username = new String (bytes,StandarCharsets.UTF_8);</span><br></pre></td></tr></table></figure>
 
