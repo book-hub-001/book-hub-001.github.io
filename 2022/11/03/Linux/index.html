@@ -268,7 +268,7 @@ Linux只有一个顶级目录：/
 <ul>
 <li>参数：被输出的内容</li>
 </ul>
-<h5 id="反引号"><a href="#反引号" class="headerlink" title="`反引号"></a>`反引号</h5><p>功能：被两个反引号包围的内容，会作为命令执行</p>
+<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h5><p>功能：被两个反引号包围的内容，会作为命令执行</p>
 <p>示例：</p>
 <ul>
 <li>echo `pwd`，会输出当前工作目录</li>
@@ -526,7 +526,7 @@ Linux只有一个顶级目录：/
 <p>安装：<code>yum install -y ntp</code></p>
 <p>启动管理：<code>systemctl start | stop | restart | status | disable | enable ntpd</code></p>
 <p>手动校准时间：<code>ntpdate -u ntp.aliyun.com</code></p>
-<h4 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h4><p>格式：a.b.c.d</p>
+<h4 id="8-ip地址"><a href="#8-ip地址" class="headerlink" title="8.ip地址"></a>8.ip地址</h4><p>格式：a.b.c.d</p>
 <ul>
 <li>abcd为0~255的数字</li>
 </ul>
@@ -540,9 +540,173 @@ Linux只有一个顶级目录：/
 </li>
 </ul>
 <p>查看ip：<code>ifconfig</code></p>
-<h4 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a>主机名</h4><p>功能：Linux系统的名称</p>
+<h4 id="9-主机名"><a href="#9-主机名" class="headerlink" title="9.主机名"></a>9.主机名</h4><p>功能：Linux系统的名称</p>
 <p>查看：<code>hostname</code></p>
 <p>设置：<code>hostnamectl set-hostname 主机名</code></p>
+<h4 id="10-配置VMware固定IP"><a href="#10-配置VMware固定IP" class="headerlink" title="10.配置VMware固定IP"></a>10.配置VMware固定IP</h4><ol>
+<li><p>修改VMware网络，参阅PPT，图太多</p>
+</li>
+<li><p>设置Linux内部固定IP</p>
+<p>修改文件：<code>/etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
+<p>示例文件内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PROXY_METHOD=&quot;none&quot;</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;</span><br><span class="line">BOOTPROTO=&quot;static&quot;			# 改为static，固定IP</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;1b0011cb-0d2e-4eaa-8a11-af7d50ebc876&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPADDR=&quot;192.168.88.131&quot;		# IP地址，自己设置，要匹配网络范围</span><br><span class="line">NETMASK=&quot;255.255.255.0&quot;		# 子网掩码，固定写法255.255.255.0</span><br><span class="line">GATEWAY=&quot;192.168.88.2&quot;		# 网关，要和VMware中配置的一致</span><br><span class="line">DNS1=&quot;192.168.88.2&quot;			# DNS1服务器，和网关一致即可</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="11-ps命令"><a href="#11-ps命令" class="headerlink" title="11.ps命令"></a>11.ps命令</h4><p>功能：查看进程信息</p>
+<p>语法：<code>ps -ef</code>，查看全部进程信息，可以搭配grep做过滤：<code>ps -ef | grep xxx</code></p>
+<p>选项：-e，显示出全部的进程选项：-f，以完全格式化的形式展示信息（展示全部信息</p>
+<p>UID：进程所属的用户ID</p>
+<p>•PID：进程的进程号ID</p>
+<p>•PPID：进程的父ID（启动此进程的其它进程）</p>
+<p>•C：此进程的CPU占用率（百分比）</p>
+<p>•STIME：进程的启动时间</p>
+<p>•TTY：启动此进程的终端序号，如显示?，表示非终端启动</p>
+<p>•TIME：进程占用CPU的时间</p>
+<p>•CMD：进程对应的名称或启动路径或启动命令</p>
+<h4 id="12-kill命令"><a href="#12-kill命令" class="headerlink" title="12.kill命令"></a>12.kill命令</h4><p>在Windows系统中，可以通过任务管理器选择进程后，点击结束进程从而关闭它。</p>
+<p>同样，在Linux中，可以通过kill命令关闭进程。</p>
+<p>语法：kill [-9] 进程ID</p>
+<p>选项：-9，表示强制关闭进程。不使用此选项会向进程发送信号要求其关闭，但是否关闭看进程自身的处理机制。</p>
+<p><img src="https://image-set.oss-cn-zhangjiakou.aliyuncs.com/img-out/2022/10/27/20221027221303.png" alt="image-20221027221303037"></p>
+<h4 id="13-nmap命令"><a href="#13-nmap命令" class="headerlink" title="13.nmap命令"></a>13.nmap命令</h4><p>可以通过Linux命令去查看端口的占用情况</p>
+<p>使用nmap命令，安装<code>nmap：yum -y install nmap</code></p>
+<p>语法：<code>nmap 被查看的IP地址</code></p>
+<p>可以看到，本机（127.0.0.1）上有5个端口现在被程序占用了。</p>
+<p>其中：22端口，一般是SSH服务使用，即FinalShell远程连接Linux所使用的端口</p>
+<h4 id="14-netstat命令"><a href="#14-netstat命令" class="headerlink" title="14.netstat命令"></a>14.netstat命令</h4><p>可以通过netstat命令，查看指定端口的占用情况</p>
+<p>语法：<code>netstat -anp | grep端口号</code></p>
+<p>安装netstat：yum -y install net-tools</p>
+<p>可以看到当前系统6000端口被程序（进程号7174）占用了</p>
+<p>其中，0.0.0.0:6000，表示端口绑定在0.0.0.0这个IP地址上，表示允许外部访问</p>
+<p>可以看到，当前系统12345端口，无人使用哦。</p>
+<h4 id="15-ping命令"><a href="#15-ping命令" class="headerlink" title="15.ping命令"></a>15.ping命令</h4><p>测试网络是否联通</p>
+<p>语法：<code>ping [-c num] 参数</code></p>
+<p>-c表示限定num次访问</p>
+<h4 id="16-wget命令"><a href="#16-wget命令" class="headerlink" title="16.wget命令"></a>16.wget命令</h4><p>wget是非交互式的文件下载器，可以在命令行内下载网络文件 </p>
+<p>语法：wget [-b] url</p>
+<p>选项：-b，可选，后台下载，会将日志写入到当前工作目录的wget-log文件•</p>
+<p>参数：url，下载链接</p>
+<p>示例：•下载apache-hadoop 3.3.0版本：wget <a target="_blank" rel="noopener" href="http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz%E2%80%A2">http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz•</a></p>
+<p>在后台下载：wget -b <a target="_blank" rel="noopener" href="http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz%E2%80%A2">http://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz•</a></p>
+<p>通过tail命令可以监控后台下载进度：tail -f wget-log注意：无论下载是否完成，都会生成要下载的文件，如果下载未完成，请及时清理未完成的不可用文件。</p>
+<h4 id="17-curl命令"><a href="#17-curl命令" class="headerlink" title="17.curl命令"></a>17.curl命令</h4><p>curl可以发送http网络请求，可用于：下载文件、获取信息等</p>
+<p>语法：curl [-O] url</p>
+<p>选项：-O，用于下载文件，当url是下载链接时，可以使用此选项保存文件</p>
+<p>参数：url，要发起请求的网络地址</p>
+<h4 id="主机运行状态"><a href="#主机运行状态" class="headerlink" title="主机运行状态"></a>主机运行状态</h4><p>查看系统资源占用</p>
+<p>•可以通过top命令查看CPU、内存使用情况，类似Windows的任务管理器默认每5秒刷新一次，</p>
+<p>语法：直接输入<code>top</code>即可，按q或ctrl + c退出</p>
+<p>top命令内容详解</p>
+<p>•第一行：</p>
+<p>top：命令名称，14:39:58：当前系统时间，up 6 min：启动了6分钟，2 users：2个用户登录，load：1、5、15分钟负载•</p>
+<p>第二行：Tasks：175个进程，1 running：1个进程子在运行，174 sleeping：174个进程睡眠，0个停止进程，0个僵尸进程•</p>
+<p>第三行：%Cpu(s)：CPU使用率，us：用户CPU使用率，sy：系统CPU使用率，ni：高优先级进程占用CPU时间百分比，id：空闲CPU率，wa：IO等待CPU占用率，hi：CPU硬件中断率，si：CPU软件中断率，st：强制等待占用CPU率•</p>
+<p>第四、五行：Kib Mem：物理内存，total：总量，free：空闲，used：使用，buf/cache：buf和cache占用KibSwap：虚拟内存（交换空间），total：总量，free：空闲，used：使用，buf/cache：buf和cache占用</p>
+<p>PID：进程id•USER：进程所属用户•PR：进程优先级，越小越高•NI：负值表示高优先级，正表示低优先级•VIRT：进程使用虚拟内存，单位KB•RES：进程使用物理内存，单位KB•SHR：进程使用共享内存，单位KB•S：进程状态（S休眠，R运行，Z僵死状态，N负数优先级，I空闲状态）•%CPU：进程占用CPU率•%MEM：进程占用内存率•TIME+：进程使用CPU时间总计，单位10毫秒•COMMAND：进程的命令或名称或程序文件路径</p>
+<p><img src="C:\Users\yyl\Desktop\blog\myblog\source_posts\Linux\捕获.PNG"></p>
+<p><img src="C:\Users\yyl\Desktop\blog\myblog\source_posts\Linux\捕获2.PNG"></p>
+<h4 id="磁盘信息监控"><a href="#磁盘信息监控" class="headerlink" title="磁盘信息监控"></a>磁盘信息监控</h4><p>使用df命令，可以查看硬盘的使用情况</p>
+<p>语法：df [-h]</p>
+<p>选项：-h，以更加人性化的单位显示</p>
+<p>可以使用iostat查看CPU、磁盘的相关信息</p>
+<p>语法：iostat [-x] [num1] [num2]</p>
+<p>•选项：-x，显示更多信息</p>
+<p>•num1：数字，刷新间隔，</p>
+<p>num2：数字，刷新几次</p>
+<p>tps：该设备每秒的传输次数（Indicate the number of transfers per second that were issued to thedevice.）。”一次传输”意思是”一次I/O请求”。多个逻辑请求可能会被合并为”一次I/O请求”。”一次传输”请求的大小是未知的。</p>
+<p>使用iostat的-x选项，可以显示更多信息</p>
+<p>rrqm/s：每秒这个设备相关的读取请求有多少被Merge了（当系统调用需要读取数据的时候，VFS将请求发到各个FS，如果FS发现不同的读取请求读取的是相同Block的数据，FS会将这个请求合并Merge,提高IO利用率,避免重复调用）；</p>
+<p>wrqm/s：每秒这个设备相关的写入请求有多少被Merge了。</p>
+<p>rsec/s：每秒读取的扇区数；</p>
+<p>sectorswsec/：每秒写入的扇区数。</p>
+<p>rKB/s：每秒发送到设备的读取请求数</p>
+<p>wKB/s：每秒发送到设备的写入请求数</p>
+<p>avgrq-sz平均请求扇区的大小</p>
+<p>avgqu-sz平均请求队列的长度。毫无疑问，队列长度越短越好。</p>
+<p>await：每一个IO请求的处理的平均时间（单位是微秒毫秒）。</p>
+<p>svctm表示平均每次设备I/O操作的服务时间（以毫秒为单位）</p>
+<p>%util：磁盘利用率</p>
+<h4 id="网络状态监控"><a href="#网络状态监控" class="headerlink" title="网络状态监控"></a>网络状态监控</h4><p>可以使用sar命令查看网络的相关统计（sar命令非常复杂，这里仅简单用于统计网络）</p>
+<p>语法：sar -n DEV num1 num2</p>
+<p>选项：-n，查看网络，</p>
+<p>DEV表示查看网络接口</p>
+<p>num1：刷新间隔（不填就查看一次结束），</p>
+<p>num2：查看次数（不填无限次数）</p>
+<p>信息解读：•</p>
+<p>IFACE本地网卡接口的名称</p>
+<p>•rxpck/s每秒钟接受的数据包</p>
+<p>•txpck/s每秒钟发送的数据包</p>
+<p>•rxKB/S每秒钟接受的数据包大小，单位为KB•</p>
+<p>txKB/S每秒钟发送的数据包大小，单位为KB</p>
+<p>•rxcmp/s每秒钟接受的压缩数据包</p>
+<p>•txcmp/s每秒钟发送的压缩包</p>
+<p>•rxmcst/s每秒钟接收的多播数据包</p>
+<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>环境变量是操作系统（Windows、Linux、Mac）在运行的时候，记录的一些关键性信息，用以辅助系统运行。</p>
+<p>在Linux系统中执行：env命令即可查看当前系统中记录的环境变量环境变量是一种KeyValue型结构，即名称和值</p>
+<p>环境变量：PATH在前面提出的问题中，我们说无论当前工作目录是什么，都能执行/usr/bin/cd这个程序，这个就是借助环境变量中：PATH这个项目的值来做到的。PATH记录了系统执行任何命令的搜索路径，记录了（路径之间以:隔开）：</p>
+<p>•/usr/local/bin</p>
+<p>•/usr/bin</p>
+<p>•/usr/local/sbin</p>
+<p>•/usr/sbin</p>
+<p>•/home/itheima/.local/bin</p>
+<p>•/home/itheima/bin</p>
+<p>当执行任何命令，都会按照顺序，从上述路径中搜索要执行的程序的本体比如执行cd命令，就从第二个目录/usr/bin中搜索到了cd命令，并执行</p>
+<p>$符号</p>
+<p>在Linux系统中，$符号被用于取”变量”的值。环境变量记录的信息，除了给操作系统自己使用外，如果我们想要取用，也可以使用。取得环境变量的值就可以通过语法：</p>
+<p>$环境变量名 </p>
+<p>来取得比如：</p>
+<p>echo $PATH就可以取得PATH这个环境变量的值，并通过echo语句输出出来。</p>
+<p>又或者：echo ${PATH}ABC当和其它内容混合在一起的时候，可以通过{}来标注取的变量是谁</p>
+<p><strong>自行设置环境变量</strong></p>
+<p>Linux环境变量可以用户自行设置，其中分为：</p>
+<p>•临时设置，语法：export变量名=变量值</p>
+<p>•永久生效•</p>
+<p>针对当前用户生效，配置在当前用户的：~/.bashrc文件中•</p>
+<p>针对所有用户生效，配置在系统的：/etc/profile文件中•并通过语法：source配置文件，进行立刻生效，或重新登录FinalShell生效</p>
+<p>自定义环境变量PATH环境变量PATH这个项目里面记录了系统执行命令的搜索路径。这些搜索路径我们也可以自行添加到PATH中去。</p>
+<p>测试：</p>
+<p>•在当前HOME目录内创建文件夹，myenv，在文件夹内创建文件mkhaha</p>
+<p>•通过vim编辑器，在mkhaha文件内填入：echo哈哈哈哈哈完成上述操作后，随意切换工作目录，执行mkhaha命令尝试一下，会发现无法执行•</p>
+<p>修改PATH的值临时修改PATH：export PATH=$PATH:/home/itheima/myenv，再次执行mkhaha，无论在哪里都能执行了</p>
+<p>或将export PATH=$PATH:/home/itheima/myenv，填入用户环境变量文件或系统环境变量文件中去</p>
+<h4 id="上传、下载"><a href="#上传、下载" class="headerlink" title="上传、下载"></a>上传、下载</h4><p>我们可以通过FinalShell工具，方便的和虚拟机进行数据交换。在FinalShell软件的下方窗体中，提供了Linux的文件系统视图，可以方便的：</p>
+<p>•浏览文件系统，找到合适的文件，右键点击下载，即可传输到本地电脑•</p>
+<p>浏览文件系统，找到合适的目录，将本地电脑的文件拓展进入，即可方便的上传数据到Linux中</p>
+<p>rz、sz命令</p>
+<p>当然，除了通过FinalShell的下方窗体进行文件的传输以外，也可以通过rz、sz命令进行文件传输。</p>
+<p>rz、sz命令需要安装，可以通过：yum -y install lrzsz，即可安装。</p>
+<p>•rz命令，进行上传，语法：直接输入rz即可</p>
+<p>sz命令进行下载，语法：sz要下载的文件</p>
+<p>文件会自动下载到桌面的：fsdownload文件夹中。注意，rz、sz命令需要终端软件支持才可正常运行FinalShell、SecureCRT、XShell等常用终端软件均支持此操作</p>
+<h4 id="压缩、解压"><a href="#压缩、解压" class="headerlink" title="压缩、解压"></a>压缩、解压</h4><p>Linux和Mac系统常用有2种压缩格式，后缀名分别是：</p>
+<p>•.tar，称之为tarball，归档文件，即简单的将文件组装到一个.tar的文件内，并没有太多文件体积的减少，仅仅是简单的封装</p>
+<p>•.gz，也常见为.tar.gz，gzip格式压缩文件，即使用gzip压缩算法将文件压缩到一个文件内，可以极大的减少压缩后的体积针对这两种格式，使用tar命令均可以进行压缩和解压缩的操作语法：</p>
+<p><code>tar -c -v -x -f -z -C 参数1 参数2...</code></p>
+<p>•-c，创建压缩文件，用于压缩模式</p>
+<p>•-v，显示压缩、解压过程，用于查看进度</p>
+<p>•-x，解压模式</p>
+<p>•-f，要创建的文件，或要解压的文件，-f选项必须在所有选项中位置处于最后一个</p>
+<p>•-z，gzip模式，不使用-z就是普通的tarball格式</p>
+<p>•-C，选择解压的目的地，用于解压模式</p>
+<p>tar的常用组合为：</p>
+<p>•tar -cvf test.tar 1.txt 2.txt 3.txt将1.txt 2.txt 3.txt压缩到test.tar文件内</p>
+<p>•tar -zcvf test.tar.gz 1.txt 2.txt 3.txt将1.txt 2.txt 3.txt压缩到test.tar.gz文件内，使用gzip模式</p>
+<p>注意：</p>
+<p>•-z选项如果使用的话，一般处于选项位第一个</p>
+<p>•-f选项，必须在选项位最后一个</p>
+<p>zip命令压缩文件</p>
+<p>可以使用zip命令，压缩文件为zip压缩包</p>
+<p>语法：zip -r 参数</p>
+<p>•-r，被压缩的包含文件夹的时候，需要使用-r选项，和rm、cp等命令的-r效果一致示例：</p>
+<p>•zip test.zip a.txt b.txt c.txt将a.txt b.txt c.txt压缩到test.zip文件内</p>
+<p>•zip -r test.zip test itheima a.txt将test、itheima两个文件夹和a.txt文件，压缩到test.zip文件内</p>
+<p>unzip命令解压文件</p>
+<p>使用unzip命令，可以方便的解压zip压缩包</p>
+<p>语法：unzip -d 参数</p>
+<p>•-d，指定要解压去的位置，同tar的-C选项</p>
+<p>•参数，被解压的zip压缩包文件</p>
+<p>示例：</p>
+<p>•unzip test.zip，将test.zip解压到当前目录</p>
+<p>•unzip test.zip -d /home/itheima，将test.zip解压到指定文件夹内（/home/itheima）</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -579,7 +743,7 @@ Linux只有一个顶级目录：/
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Linux%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一.Linux简介与安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">二.Linux基础命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">1.Linux目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80"><span class="toc-number">2.2.</span> <span class="toc-text">2.Linux命令基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">ls命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cd%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.2.</span> <span class="toc-text">cd命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pwd%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.3.</span> <span class="toc-text">pwd命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mkdir%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.4.</span> <span class="toc-text">mkdir命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#touch%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.5.</span> <span class="toc-text">touch命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cat%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.6.</span> <span class="toc-text">cat命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#more%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.7.</span> <span class="toc-text">more命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cp%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.8.</span> <span class="toc-text">cp命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mv%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.9.</span> <span class="toc-text">mv命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rm%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.10.</span> <span class="toc-text">rm命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#which%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.11.</span> <span class="toc-text">which命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#find%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.12.</span> <span class="toc-text">find命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#grep%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.13.</span> <span class="toc-text">grep命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wc%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.14.</span> <span class="toc-text">wc命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-number">2.2.15.</span> <span class="toc-text">管道符|</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#echo%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.16.</span> <span class="toc-text">echo命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7"><span class="toc-number">2.2.17.</span> <span class="toc-text">&#96;反引号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.18.</span> <span class="toc-text">tail命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#head%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.19.</span> <span class="toc-text">head命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6"><span class="toc-number">2.2.20.</span> <span class="toc-text">重定向符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vi%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">2.2.21.</span> <span class="toc-text">vi编辑器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%9A%84%E9%80%89%E9%A1%B9"><span class="toc-number">2.3.</span> <span class="toc-text">命令的选项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看命令的帮助</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E8%AF%A6%E7%BB%86%E6%89%8B%E5%86%8C"><span class="toc-number">2.3.2.</span> <span class="toc-text">查看命令的详细手册</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-Linux%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">三.Linux用户和权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-root%E7%94%A8%E6%88%B7"><span class="toc-number">3.1.</span> <span class="toc-text">1.root用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#su%E5%92%8Csudo%E5%91%BD%E4%BB%A4"><span class="toc-number">3.1.1.</span> <span class="toc-text">su和sudo命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E3%80%81%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">2.用户、用户组管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-number">3.3.</span> <span class="toc-text">3.查看权限控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6-chmod"><span class="toc-number">3.4.</span> <span class="toc-text">4.修改权限控制 - chmod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E4%BF%AE%E6%94%B9%E6%89%80%E5%B1%9E%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84-chown"><span class="toc-number">3.5.</span> <span class="toc-text">5.修改所属用户和用户组 - chown</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-Linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">四.Linux常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.1.</span> <span class="toc-text">1.快捷键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">4.2.</span> <span class="toc-text">2.软件安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-systemctl"><span class="toc-number">4.3.</span> <span class="toc-text">3.systemctl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">4.软链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%97%A5%E6%9C%9F"><span class="toc-number">4.5.</span> <span class="toc-text">4.日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%97%B6%E5%8C%BA"><span class="toc-number">4.6.</span> <span class="toc-text">6.时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-ntp"><span class="toc-number">4.7.</span> <span class="toc-text">7.ntp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ip%E5%9C%B0%E5%9D%80"><span class="toc-number">4.8.</span> <span class="toc-text">ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">4.9.</span> <span class="toc-text">主机名</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Linux%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一.Linux简介与安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">二.Linux基础命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">1.Linux目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80"><span class="toc-number">2.2.</span> <span class="toc-text">2.Linux命令基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">ls命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cd%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.2.</span> <span class="toc-text">cd命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pwd%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.3.</span> <span class="toc-text">pwd命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mkdir%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.4.</span> <span class="toc-text">mkdir命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#touch%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.5.</span> <span class="toc-text">touch命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cat%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.6.</span> <span class="toc-text">cat命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#more%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.7.</span> <span class="toc-text">more命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cp%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.8.</span> <span class="toc-text">cp命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mv%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.9.</span> <span class="toc-text">mv命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rm%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.10.</span> <span class="toc-text">rm命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#which%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.11.</span> <span class="toc-text">which命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#find%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.12.</span> <span class="toc-text">find命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#grep%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.13.</span> <span class="toc-text">grep命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wc%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.14.</span> <span class="toc-text">wc命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-number">2.2.15.</span> <span class="toc-text">管道符|</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#echo%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.16.</span> <span class="toc-text">echo命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7"><span class="toc-number">2.2.17.</span> <span class="toc-text">反引号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tail%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.18.</span> <span class="toc-text">tail命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#head%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.19.</span> <span class="toc-text">head命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6"><span class="toc-number">2.2.20.</span> <span class="toc-text">重定向符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vi%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">2.2.21.</span> <span class="toc-text">vi编辑器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%9A%84%E9%80%89%E9%A1%B9"><span class="toc-number">2.3.</span> <span class="toc-text">命令的选项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E5%B8%AE%E5%8A%A9"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看命令的帮助</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E7%9A%84%E8%AF%A6%E7%BB%86%E6%89%8B%E5%86%8C"><span class="toc-number">2.3.2.</span> <span class="toc-text">查看命令的详细手册</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-Linux%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">三.Linux用户和权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-root%E7%94%A8%E6%88%B7"><span class="toc-number">3.1.</span> <span class="toc-text">1.root用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#su%E5%92%8Csudo%E5%91%BD%E4%BB%A4"><span class="toc-number">3.1.1.</span> <span class="toc-text">su和sudo命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E3%80%81%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">2.用户、用户组管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-number">3.3.</span> <span class="toc-text">3.查看权限控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6-chmod"><span class="toc-number">3.4.</span> <span class="toc-text">4.修改权限控制 - chmod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E4%BF%AE%E6%94%B9%E6%89%80%E5%B1%9E%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84-chown"><span class="toc-number">3.5.</span> <span class="toc-text">5.修改所属用户和用户组 - chown</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-Linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">四.Linux常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.1.</span> <span class="toc-text">1.快捷键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">4.2.</span> <span class="toc-text">2.软件安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-systemctl"><span class="toc-number">4.3.</span> <span class="toc-text">3.systemctl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">4.软链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%97%A5%E6%9C%9F"><span class="toc-number">4.5.</span> <span class="toc-text">4.日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%97%B6%E5%8C%BA"><span class="toc-number">4.6.</span> <span class="toc-text">6.时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-ntp"><span class="toc-number">4.7.</span> <span class="toc-text">7.ntp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-ip%E5%9C%B0%E5%9D%80"><span class="toc-number">4.8.</span> <span class="toc-text">8.ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">4.9.</span> <span class="toc-text">9.主机名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E9%85%8D%E7%BD%AEVMware%E5%9B%BA%E5%AE%9AIP"><span class="toc-number">4.10.</span> <span class="toc-text">10.配置VMware固定IP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-ps%E5%91%BD%E4%BB%A4"><span class="toc-number">4.11.</span> <span class="toc-text">11.ps命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-kill%E5%91%BD%E4%BB%A4"><span class="toc-number">4.12.</span> <span class="toc-text">12.kill命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-nmap%E5%91%BD%E4%BB%A4"><span class="toc-number">4.13.</span> <span class="toc-text">13.nmap命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-netstat%E5%91%BD%E4%BB%A4"><span class="toc-number">4.14.</span> <span class="toc-text">14.netstat命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-ping%E5%91%BD%E4%BB%A4"><span class="toc-number">4.15.</span> <span class="toc-text">15.ping命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-wget%E5%91%BD%E4%BB%A4"><span class="toc-number">4.16.</span> <span class="toc-text">16.wget命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#17-curl%E5%91%BD%E4%BB%A4"><span class="toc-number">4.17.</span> <span class="toc-text">17.curl命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81"><span class="toc-number">4.18.</span> <span class="toc-text">主机运行状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF%E7%9B%91%E6%8E%A7"><span class="toc-number">4.19.</span> <span class="toc-text">磁盘信息监控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7"><span class="toc-number">4.20.</span> <span class="toc-text">网络状态监控</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.21.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E3%80%81%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.22.</span> <span class="toc-text">上传、下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B"><span class="toc-number">4.23.</span> <span class="toc-text">压缩、解压</span></a></li></ol></li></ol>
         </div>
     
 </div>
