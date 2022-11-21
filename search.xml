@@ -624,7 +624,374 @@
 <p>在出现异常的地方用throw new自定义对象抛出，作用：编译时异常是编译阶段就报错，提醒更加强烈，一定需要处理！！</p>
 <p>2、自定义运行时异常定义一个异常类继承RuntimeException.重写构造器。</p>
 <p>在出现异常的地方用throw new自定义对象抛出!作用：提醒不强烈，编译阶段不报错！！运行时才可能出现！！</p>
-<h3 id="二十-日志技术"><a href="#二十-日志技术" class="headerlink" title="二十.日志技术"></a>二十.日志技术</h3>]]></content>
+<h3 id="二十-日志技术"><a href="#二十-日志技术" class="headerlink" title="二十.日志技术"></a>二十.日志技术</h3><p>用来记录程序运行过程中的信息，并可以进行永久存储。</p>
+<p>日志接口：一些规范，提供给日志的实现框架设计的标准。包括JCL和s1f4j</p>
+<p>日志框架：牛人或者第三方公司已经做好的实现代码，后来者直接可以拿去使用。常见JUL和logback</p>
+<h4 id="Logback日志框架"><a href="#Logback日志框架" class="headerlink" title="Logback日志框架"></a>Logback日志框架</h4><p>官方网站：<a href="https://logback.qos.ch/index.htmlLogback">https://logback.qos.ch/index.htmlLogback</a></p>
+<p>日志框架分为以下模块：</p>
+<p>logback-core：该模块为其他两个模块提供基础代码。（必须有）</p>
+<p>logback-classic：完整实现了slf4j API的模块。（必须有）</p>
+<p>logback-access模块与Tomcat和Jetty等Servlet容器集成，以提供HTTP访问日志功能（可选模块，以后接触）</p>
+<p>想使用Logback日志框架，至少需要在项目中整合如下三个模块：</p>
+<p>slf4j-api：日志接口</p>
+<p>logback-core：基础模块</p>
+<p>logback-classic：功能模块，它完整实现了slf4j API</p>
+<p>实现步骤：</p>
+<p>①：导入Logback框架到项目中去。在项目下新建文件夹lib，导入Logback的jar包到该文件夹下</p>
+<p>②：将存放jar文件的lib文件夹添加到项目依赖库中去。</p>
+<p>③：将Logback的核心配置文件logback.xml直接拷贝到src目录下（必须是src下）。</p>
+<p>④：创建Logback框架提供的Logger日志对象，后续使用其方法记录系统的日志信息。</p>
+<p><code>public static final LoggerLOGGER= LoggerFactory.getLogger(“类名&quot;);</code></p>
+<p>对Logback日志框架的控制，都是通过核心配置文件logback.xml来实现的</p>
+<p>Logback日志输出位置、格式设置：</p>
+<p>通过logback.xml中的    <code>&lt;append&gt;</code>标签可以设置输出位置。</p>
+<p>通常可以设置2个日志输出位置：一个是控制台、一个是系统文件中</p>
+<p>日志级别：</p>
+<p>ALL和OFF分别是打开、及关闭全部日志信息。</p>
+<p>除此之外，日志级别还有：TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR ;</p>
+<p>默认级别是DEBUG，对应其方法</p>
+<p>作用：当在logback.xml文件中设置了某种日志级别后，系统将只输出当前级别，以及高于当前级别的日志。</p>
+<h3 id="二十一-File类的使用"><a href="#二十一-File类的使用" class="headerlink" title="二十一.File类的使用"></a>二十一.File类的使用</h3><h4 id="创建File对象"><a href="#创建File对象" class="headerlink" title="创建File对象"></a>创建File对象</h4><p>File类在java.io.File包下。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public File(Stringpathname)</td>
+<td>根据文件路径创建文件对象</td>
+</tr>
+<tr>
+<td>public File(Stringparent,Stringchild)</td>
+<td>根据父路径名字符串和子路径名字符串创建文件对象</td>
+</tr>
+<tr>
+<td>public File(Fileparent,Stringchild)</td>
+<td>根据父路径对应文件对象和子路径名字符串创建文件对象</td>
+</tr>
+</tbody></table>
+<h4 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h4><table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public boolean isDirectory()</td>
+<td>判断此路径名表示的File是否为文件夹</td>
+</tr>
+<tr>
+<td>public boolean isFile()</td>
+<td>判断此路径名表示的File是否为文件</td>
+</tr>
+<tr>
+<td>public boolean exists()</td>
+<td>判断此路径名表示的File是否存在</td>
+</tr>
+<tr>
+<td>public long length()</td>
+<td>返回文件的大小（字节数量）</td>
+</tr>
+<tr>
+<td>public String getAbsolutePath()</td>
+<td>返回文件的绝对路径</td>
+</tr>
+<tr>
+<td>public String getPath()</td>
+<td>返回定义文件时使用的路径</td>
+</tr>
+<tr>
+<td>public String getName()</td>
+<td>返回文件的名称，带后缀</td>
+</tr>
+<tr>
+<td>public long lastModified()</td>
+<td>返回文件的最后修改时间（时间毫秒值）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public boolean createNewFile()</td>
+<td>创建一个新的空的文件</td>
+</tr>
+<tr>
+<td>public boolean mkdir()</td>
+<td>只能创建一级文件夹</td>
+</tr>
+<tr>
+<td>public boolean mkdirs()</td>
+<td>可以创建多级文件夹</td>
+</tr>
+<tr>
+<td>public boolean delete()</td>
+<td>删除由此抽象路径名表示的文件或空文件夹</td>
+</tr>
+</tbody></table>
+<p>delete方法默认只能删除文件和空文件夹，delete方法直接删除不走回收站</p>
+<p>若文件不存在则创建成功，若文件已经存在则失败</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public String[] list()</td>
+<td>获取当前目录下所有的”一级文件名称”到一个字符串数组中去返回。</td>
+</tr>
+<tr>
+<td>public File[] listFiles()(常用)</td>
+<td>获取当前目录下所有的”一级文件对象”到一个文件对象数组中去返回（重点）</td>
+</tr>
+</tbody></table>
+<h3 id="二十二-字符编码"><a href="#二十二-字符编码" class="headerlink" title="二十二.字符编码"></a>二十二.字符编码</h3><p>字符集（Character Set）是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不同，常见字符集有：</p>
+<h4 id="ASCII字符集"><a href="#ASCII字符集" class="headerlink" title="ASCII字符集"></a>ASCII字符集</h4><p>ASCII(American Standard Code for Information Interchange，美国信息交换标准代码)：包括了数字、英文、符号</p>
+<p>使用1个字节存储一个字符，一个字节是8位，总共可以表示128个字符信息，对于表示英文、数字来说是够用的</p>
+<h4 id="GBK字符集"><a href="#GBK字符集" class="headerlink" title="GBK字符集"></a>GBK字符集</h4><p>GBK是中国的码表，包含了几万个汉字等字符，同时也要兼容ASCII编码，</p>
+<p>GBK编码中一个中文字符一般以两个字节的形式存储。</p>
+<h4 id="Unicode（UTF-8）"><a href="#Unicode（UTF-8）" class="headerlink" title="Unicode（UTF-8）"></a>Unicode（UTF-8）</h4><p>统一码，也叫万国码。是计算机科学领域里的一项业界标准。</p>
+<p>UTF-8是Unicode的一种常见编码方式。</p>
+<p>UTF-8编码后一个中文一般以三个字节的形式存储，同时也要兼容ASCII编码表。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte[] getBytes()</td>
+<td>使用平台的默认字符集将该String编码为一系列字节，将结果存储到新的字节数组中</td>
+</tr>
+<tr>
+<td>byte[] getBytes(StringcharsetName)</td>
+<td>使用指定的字符集将该String编码为一系列字节，将结果存储到新的字节数组中</td>
+</tr>
+<tr>
+<td>String(byte[]bytes)</td>
+<td>通过使用平台的默认字符集解码指定的字节数组来构造新的String</td>
+</tr>
+<tr>
+<td>String(byte[]bytes,StringcharsetName)</td>
+<td>通过指定的字符集解码指定的字节数组来构造新的String</td>
+</tr>
+</tbody></table>
+<h3 id="二十三-IO流"><a href="#二十三-IO流" class="headerlink" title="二十三.IO流"></a>二十三.IO流</h3><p>IO流概述</p>
+<p>I表示intput，把硬盘文件中的数据读入到内存的过程，称之输入，负责读。</p>
+<p>O表示output，把内存中的数据写出到硬盘文件的过程，称之输出，负责写。</p>
+<h4 id="字节输入流："><a href="#字节输入流：" class="headerlink" title="字节输入流："></a>字节输入流：</h4><p>以内存为基准，来自磁盘文件/网络中的数据以字节的形式读入到内存中去的流称为字节输入流。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public FileInputStream(File file)</td>
+<td>创建字节输入流管道与源文件对象接通</td>
+</tr>
+<tr>
+<td>public FileInputStream(String pathname)</td>
+<td>创建字节输入流管道与源文件路径接通</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public byte[] readAllBytes() throws IOException</td>
+<td>直接将当前字节输入流对应的文件对象的字节数据装到一个字节数组返回</td>
+</tr>
+<tr>
+<td>public int read()</td>
+<td>每次读取一个字节返回，如果字节已经没有可读的返回-1</td>
+</tr>
+<tr>
+<td>public int read(byte[] buffer)</td>
+<td>每次读取一个字节数组返回，如果字节已经没有可读的返回-1</td>
+</tr>
+</tbody></table>
+<h4 id="字节输出流："><a href="#字节输出流：" class="headerlink" title="字节输出流："></a>字节输出流：</h4><p>以内存为基准，把内存中的数据以字节写出到磁盘文件或者网络中去的流称为字节输出流。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>publicFileOutputStream(Filefile)</td>
+<td>创建字节输出流管道与源文件对象接通</td>
+</tr>
+<tr>
+<td>publicFileOutputStream(Filefile，booleanappend)</td>
+<td>创建字节输出流管道与源文件对象接通，可追加数据</td>
+</tr>
+<tr>
+<td>publicFileOutputStream(Stringfilepath)</td>
+<td>创建字节输出流管道与源文件路径接通</td>
+</tr>
+<tr>
+<td>publicFileOutputStream(Stringfilepath，booleanappend)</td>
+<td>创建字节输出流管道与源文件路径接通，可追加数据</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>publicvoidwrite(inta)</td>
+<td>写一个字节出去</td>
+</tr>
+<tr>
+<td>publicvoidwrite(byte[]buffer)</td>
+<td>写一个字节数组出去</td>
+</tr>
+<tr>
+<td>publicvoidwrite(byte[]buffer,intpos,intlen)</td>
+<td>写一个字节数组的一部分出去。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flush()</td>
+<td>刷新流，还可以继续写数据</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>关闭流，释放资源，但是在关闭之前会先刷新流。一旦关闭，就不能再写数据</td>
+</tr>
+</tbody></table>
+<p>字节输出流如何实现写出去的数据能换行</p>
+<p><code>os.write(“\r\n”.getBytes())</code></p>
+<h4 id="字符输入流："><a href="#字符输入流：" class="headerlink" title="字符输入流："></a>字符输入流：</h4><p>以内存为基准，来自磁盘文件/网络中的数据以字符的形式读入到内存中去的流称为字符输入流。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public FileReader(File file)</td>
+<td>创建字符输入流管道与源文件对象接通</td>
+</tr>
+<tr>
+<td>public FileReader(String pathname)</td>
+<td>创建字符输入流管道与源文件路径接通</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public int read()</td>
+<td>每次读取一个字符返回，如果字符已经没有可读的返回-1</td>
+</tr>
+<tr>
+<td>public int read(char[] buffer)</td>
+<td>每次读取一个字符数组，返回读取的字符个数，如果字符已经没有可读的返回-1</td>
+</tr>
+</tbody></table>
+<h4 id="字符输出流："><a href="#字符输出流：" class="headerlink" title="字符输出流："></a>字符输出流：</h4><p>以内存为基准，把内存中的数据以字符写出到磁盘文件或者网络介质中去的流称为字符输出流。磁盘内存</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public FileWriter(File file)</td>
+<td>创建字符输出流管道与源文件对象接通</td>
+</tr>
+<tr>
+<td>public FileWriter(File file，boolean append)</td>
+<td>创建字符输出流管道与源文件对象接通，可追加数据</td>
+</tr>
+<tr>
+<td>public FileWriter(String filepath)</td>
+<td>创建字符输出流管道与源文件路径接通</td>
+</tr>
+<tr>
+<td>public FileWriter(String filepath，boolean append)</td>
+<td>创建字符输出流管道与源文件路径接通，可追加数据</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void write(int c)</td>
+<td>写一个字符</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf)</td>
+<td>写入一个字符数组</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf, int off, int len)</td>
+<td>写入字符数组的一部分</td>
+</tr>
+<tr>
+<td>void write(String str)</td>
+<td>写一个字符串</td>
+</tr>
+<tr>
+<td>void write(String str, int off, int len)</td>
+<td>写一个字符串的一部分</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flush()</td>
+<td>刷新流，还可以继续写数据</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>关闭流，释放资源，但是在关闭之前会先刷新流。一旦关闭，就不能再写数据</td>
+</tr>
+</tbody></table>
+]]></content>
       <categories>
         <category>JAVA</category>
       </categories>
@@ -1461,8 +1828,8 @@
   <entry>
     <title>git-命令</title>
     <url>/2022/08/15/git-%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x65;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x65;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
-<p>仓库地址 <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#101;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#101;&#x65;&#x2e;&#99;&#x6f;&#109;</a>:yyl1546139844/yyl.git</p>
+    <content><![CDATA[<h3 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h3><p>touch 创建<br>git init 创建仓库<br>git status 查看状态<br>git add .  全部到缓存区<br>git commit -m “注释”<br>git log    查看仓库<br>git-log    间接查看<br>git reset –hard commitID  回退<br>git reflog     操作记录<br>git branch   查看分支<br>git branch 名字<br>git checkout 名字  切换分之<br>git checkout -b  创建并切换<br>git merge 名字   合并分之<br>git branch -d b1 检查删除<br>git branch -D b1 强制删除<br>ssh-keygen -t rsa   创建ssh<br>cat ～/.ssh/id_rsa.pub 查看ssh<br>ssh -T <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#46;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x65;&#x65;&#46;&#99;&#x6f;&#109;</a> 查看链接的ssh    <br>git remote add 仓库名字（origin） 地址   链接仓库    <br>git remote rm 仓库名称<br>git remote    查看链接的仓库<br>git push -f –set-upstream 远端仓库 本地分支名:远端分支名      可以简化后面三个        -f:强制推送  –set-upstream :链接远端分支<br>git branch -vv 查看链接的远端分支<br>git clone ssh地址 本地目录<br>git fetch 《remote name》 《branch name》<br>git pull 《remote name》 《branch name》</p>
+<p>仓库地址 <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#101;&#x65;&#46;&#99;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#101;&#x65;&#46;&#99;&#111;&#109;</a>:yyl1546139844/yyl.git</p>
 ]]></content>
       <categories>
         <category>git</category>
