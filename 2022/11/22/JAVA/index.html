@@ -62,7 +62,7 @@
     <div class='main'>
         <h1 class="title">JAVA</h1>
         <div class="stuff">
-            <span>九月 18, 2022</span>
+            <span>十一月 22, 2022</span>
             
   <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li></ul>
 
@@ -427,7 +427,7 @@
 <p><strong>Map</strong> <strong>集合整体格式：</strong></p>
 <p>Collection集合的格式: [元素1,元素2,元素3..]</p>
 <p>Map集合的完整格式：{key1=value1 , key2=value2 , key3=value3 , …}</p>
-<p><img src="/2022/09/18/JAVA/Snipaste_2022-11-04_18-56-31.png"></p>
+<p><img src="/2022/11/22/JAVA/Snipaste_2022-11-04_18-56-31.png"></p>
 <p><strong>使用最多的</strong> <strong>Map</strong> <strong>集合是</strong> <strong>HashMap</strong> <strong>。</strong></p>
 <p>重点掌握HashMap , LinkedHashMap , TreeMap。其他的后续理解。</p>
 <p><strong>Map</strong> <strong>集合的键</strong> <strong>无序、不重复的</strong></p>
@@ -544,7 +544,7 @@
 <td>结合lambda遍历Map集合</td>
 </tr>
 </tbody></table>
-<p><img src="/2022/09/18/JAVA/Snipaste_2022-11-04_19-17-39.png"></p>
+<p><img src="/2022/11/22/JAVA/Snipaste_2022-11-04_19-17-39.png"></p>
 <h5 id="HashMap的特点"><a href="#HashMap的特点" class="headerlink" title="HashMap的特点"></a><strong>HashMap的特点</strong></h5><p>HashMap是Map里面的一个实现类。特点都是由键决定的：无序、不重复、无索引</p>
 <p>没有额外需要学习的特有方法，直接使用Map里面的方法就可以了。</p>
 <p>HashMap跟HashSet底层原理是一模一样的，都是哈希表结构，只是HashMap的每个元素包含两个值而已。</p>
@@ -611,7 +611,7 @@
 <p><code>public static &lt;T&gt; Collector toSet()    </code>        把元素收集到Set集合中</p>
 <p><code>public staticCollector toMap(Function keyMapper , Function valueMapper)    </code>    把元素收集到Map集合中</p>
 <h3 id="十九-异常"><a href="#十九-异常" class="headerlink" title="十九.异常"></a>十九.异常</h3><h4 id="异常概述、体系"><a href="#异常概述、体系" class="headerlink" title="异常概述、体系"></a>异常概述、体系</h4><p>异常是程序在“编译”或者“执行”的过程中可能出现的问题，注意：语法错误不算在异常体系中。比如:数组索引越界、空指针异常、日期格式化异常，等…</p>
-<p><img src="/2022/09/18/JAVA/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB.PNG"></p>
+<p><img src="/2022/11/22/JAVA/%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB.PNG"></p>
 <p>Error：系统级别问题、JVM退出等，代码无法控制。</p>
 <p>Exception：java.lang包下，称为异常类，它表示程序本身可以处理的问题</p>
 <p>RuntimeException及其子类：运行时异常，编译阶段不会报错。(空指针异常，数组索引越界异常)</p>
@@ -817,7 +817,8 @@
 <td>通过指定的字符集解码指定的字节数组来构造新的String</td>
 </tr>
 </tbody></table>
-<h3 id="二十三-IO流"><a href="#二十三-IO流" class="headerlink" title="二十三.IO流"></a>二十三.IO流</h3><p>IO流概述</p>
+<h3 id="二十三-IO流"><a href="#二十三-IO流" class="headerlink" title="二十三.IO流"></a>二十三.IO流</h3><p><img src="/2022/11/22/JAVA/IO%E6%B5%81.PNG"></p>
+<p>IO流概述</p>
 <p>I表示intput，把硬盘文件中的数据读入到内存的过程，称之输入，负责读。</p>
 <p>O表示output，把内存中的数据写出到硬盘文件的过程，称之输出，负责写。</p>
 <h4 id="字节输入流："><a href="#字节输入流：" class="headerlink" title="字节输入流："></a>字节输入流：</h4><p>以内存为基准，来自磁盘文件/网络中的数据以字节的形式读入到内存中去的流称为字节输入流。</p>
@@ -1022,6 +1023,210 @@
 <td>关闭流，释放资源，但是在关闭之前会先刷新流。一旦关闭，就不能再写数据</td>
 </tr>
 </tbody></table>
+<h4 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h4><p>缓冲流概述</p>
+<p>缓冲流也称为高效流、或者高级流。之前学习的字节流可以称为原始流。</p>
+<p>作用：缓冲流自带缓冲区、可以提高原始字节流、字符流读写数据的性能</p>
+<h5 id="字节输入和字节输出缓冲流"><a href="#字节输入和字节输出缓冲流" class="headerlink" title="字节输入和字节输出缓冲流"></a>字节输入和字节输出缓冲流</h5><table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public BuferedInputStream(InputStream is)</td>
+<td>可以把低级的字节输入流包装成一个高级的缓冲字节输入流管道，从而提高字节输入流读数据的性能</td>
+</tr>
+<tr>
+<td>public BuferedOutputStream(OutputStream os)</td>
+<td>可以把低级的字节输出流包装成一个高级的缓冲字节输出流，从而提高写数据的性能</td>
+</tr>
+</tbody></table>
+<h5 id="字符输入缓冲流"><a href="#字符输入缓冲流" class="headerlink" title="字符输入缓冲流"></a>字符输入缓冲流</h5><table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public BufferedReader(Reader r)</td>
+<td>可以把低级的字符输入流包装成一个高级的缓冲字符输入流管道，从而提高字符输入流读数据的性能</td>
+</tr>
+</tbody></table>
+<p>新增功能：</p>
+<p><code>public String readLine()</code>读取一行数据返回，如果读取没有完毕，无行可读返回null</p>
+<h5 id="字符输出缓冲流"><a href="#字符输出缓冲流" class="headerlink" title="字符输出缓冲流"></a>字符输出缓冲流</h5><table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public BuferedWriter(Writer w)</td>
+<td>可以把低级的字符输出流包装成一个高级的缓冲字符输出流管道，从而提高字符输出流写数据的性能</td>
+</tr>
+</tbody></table>
+<p>新增功能</p>
+<p><code>public void newLine()</code>换行操作</p>
+<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><h5 id="字符输入转换流"><a href="#字符输入转换流" class="headerlink" title="字符输入转换流"></a>字符输入转换流</h5><p>字符输入转换流：InputStreamReader，可以把原始的字节流按照指定编码转换成字符输入流。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public InputStreamReader(InputStream is)</td>
+<td>可以把原始的字节流按照代码默认编码转换成字符输入流。几乎不用，与默认的FileReader一样。</td>
+</tr>
+<tr>
+<td>public InputStreamReader(InputStream is，String charset)</td>
+<td>可以把原始的字节流按照指定编码转换成字符输入流，这样字符流中的字符就不乱码了(重点)</td>
+</tr>
+</tbody></table>
+<h5 id="字符输出转换流"><a href="#字符输出转换流" class="headerlink" title="字符输出转换流"></a>字符输出转换流</h5><p>字符输入转换流：OutputStreamWriter，可以把字节输出流按照指定编码转换成字符输出流。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public OutputStreamWriter(OutputStream os)</td>
+<td>可以把原始的字节输出流按照代码默认编码转换成字符输出流。几乎不用。</td>
+</tr>
+<tr>
+<td>public OutputStreamWriter(OutputStream os，Stringcharset)</td>
+<td>可以把原始的字节输出流按照指定编码转换成字符输出流(重点)</td>
+</tr>
+</tbody></table>
+<h4 id="序列化对象"><a href="#序列化对象" class="headerlink" title="序列化对象"></a>序列化对象</h4><h5 id="对象序列化："><a href="#对象序列化：" class="headerlink" title="对象序列化："></a>对象序列化：</h5><p>使用到的流是对象字节输出流：ObjectOutputStream</p>
+<p>构造器：<code>public ObjectOutputStream(OutputStream out)</code>把低级字节输出流包装成高级的对象</p>
+<p>字节输出流方法<code>public final void writeObject(Object obj)</code>把对象写出去到对象序列化流的文件中去</p>
+<h5 id="对象反序列化："><a href="#对象反序列化：" class="headerlink" title="对象反序列化："></a>对象反序列化：</h5><p>使用到的流是对象字节输入流：ObjectInputStream</p>
+<p>作用：以内存为基准，把存储到磁盘文件中去的对象数据恢复成内存中的对象，称为对象反序列化。</p>
+<p>构造器说明<code>public ObjectInputStream(InputStream out)</code>把低级字节输如流包装成高级的对象字节</p>
+<p>输入流方法名称说明<code>public Object readObject()</code>把存储到磁盘文件中去的对象数据恢复成内存中的对象返回</p>
+<h4 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h4><p>作用：打印流可以实现方便、高效的打印数据到文件中去。</p>
+<p>打印流一般是指：PrintStream，PrintWriter两个类。</p>
+<p>可以实现打印什么数据就是什么数据，例如打印整数97写出去就是97，打印boolean的true，写出去就是true。</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public PrintStream(OutputStream os)</td>
+<td>打印流直接通向字节输出流管道</td>
+</tr>
+<tr>
+<td>public PrintStream(Filef)</td>
+<td>打印流直接通向文件对象</td>
+</tr>
+<tr>
+<td>public PrintStream(String filepath)</td>
+<td>打印流直接通向文件路径</td>
+</tr>
+</tbody></table>
+<p>方法说明<code>public void print(Xxx xx)</code>打印任意类型的数据出去</p>
+<table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public PrintWriter(OutputStream os)</td>
+<td>打印流直接通向字节输出流管道</td>
+</tr>
+<tr>
+<td>public PrintWriter (Writer w)</td>
+<td>打印流直接通向字符输出流管道</td>
+</tr>
+<tr>
+<td>public PrintWriter (Filef)</td>
+<td>打印流直接通向文件对象</td>
+</tr>
+<tr>
+<td>public PrintWriter (String filepath)</td>
+<td>打印流直接通向文件路径</td>
+</tr>
+</tbody></table>
+<p>方法说明<code>public void print(Xxx xx)</code>打印任意类型的数据出去</p>
+<h4 id="输出语句重定向"><a href="#输出语句重定向" class="headerlink" title="输出语句重定向"></a>输出语句重定向</h4><p>属于打印流的一种应用，可以把输出语句的打印位置改到文件。</p>
+<p><code>PrintStream ps = new PrintStream(&quot;文件地址&quot;)</code></p>
+<p><code>System.setOut(ps);</code></p>
+<p>可以改变<code>System.out.println</code>的打印位置</p>
+<h4 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h4><p>Map接口下，HashMap实现类下的类；</p>
+<p>Properties核心作用：</p>
+<p>Properties代表的是一个属性文件，可以把自己对象中的键值对信息存入到一个属性文件中去。</p>
+<p>属性文件：后缀是.properties结尾的文件,里面的内容都是key=value，后续做系统配置信息的。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void load(InputStream inStream）</td>
+<td>从输入字节流读取属性列表（键和元素对）</td>
+</tr>
+<tr>
+<td>void load(Reader reader)</td>
+<td>从输入字符流读取属性列表（键和元素对）</td>
+</tr>
+<tr>
+<td>void store(OutputStream out, String comments)</td>
+<td>将此属性列表（键和元素对）写入此Properties表中，以适合于使用load(InputStream)方法的格式写入输出字节流</td>
+</tr>
+<tr>
+<td>public Object setProperty(String key, String value)</td>
+<td>保存键值对（put）</td>
+</tr>
+<tr>
+<td>void store(Writer writer, String comments)</td>
+<td>将此属性列表（键和元素对）写入此Properties表中，以适合使用load(Reader)方法的格式写入输出字符流</td>
+</tr>
+<tr>
+<td>public String getProperty(String key)</td>
+<td>使用此属性列表中指定的键搜索属性值(get)</td>
+</tr>
+<tr>
+<td>public Set<String> stringPropertyNames()</td>
+<td>所有键的名称的集合(keySet())</td>
+</tr>
+</tbody></table>
+<h4 id="IO框架"><a href="#IO框架" class="headerlink" title="IO框架"></a>IO框架</h4><h5 id="commons-io"><a href="#commons-io" class="headerlink" title="commons-io"></a>commons-io</h5><p>commons-io是apache开源基金组织提供的一组有关IO操作的类库，可以提高IO功能开发的效率。</p>
+<p>commons-io工具包提供了很多有关io操作的类。有两个主要的类FileUtils, IOUtils</p>
+<p>FileUtils主要有如下方法:</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String readFileToString(File file, String encoding)</td>
+<td>读取文件中的数据,返回字符串</td>
+</tr>
+<tr>
+<td>void copyFile(File srcFile, File destFile)</td>
+<td>复制文件。</td>
+</tr>
+<tr>
+<td>void copyDirectoryToDirectory(File srcDir, FiledestDir)</td>
+<td>复制文件夹。</td>
+</tr>
+</tbody></table>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -1058,7 +1263,7 @@
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E7%AC%AC%E4%B8%80%E6%AE%B5%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">一.第一段程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">二.变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">三.数据转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">四.方法的定义与调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E9%80%89%E6%8B%A9%E8%AF%AD%E5%8F%A5"><span class="toc-number">5.</span> <span class="toc-text">五.选择语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.</span> <span class="toc-text">六.循环语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83-%E6%95%B0%E7%BB%84"><span class="toc-number">7.</span> <span class="toc-text">七.数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">8.</span> <span class="toc-text">八.动态数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.</span> <span class="toc-text">九.字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-number">10.</span> <span class="toc-text">十.类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">11.</span> <span class="toc-text">十一.抽象类和抽象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-%E8%BD%AC%E5%9E%8B"><span class="toc-number">12.</span> <span class="toc-text">十二.转型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89-%E6%8E%A5%E5%8F%A3"><span class="toc-number">13.</span> <span class="toc-text">十三.接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B-this%E5%92%8Csuper%E4%B8%93%E9%A2%98"><span class="toc-number">14.</span> <span class="toc-text">十四.this和super专题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94-final%E4%B8%93%E9%A2%98"><span class="toc-number">15.</span> <span class="toc-text">十五.final专题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD-public-protect-default-private-static-final-abstract"><span class="toc-number">16.</span> <span class="toc-text">十六.public protect  default private static final abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%83-%E5%B8%B8%E7%94%A8api"><span class="toc-number">17.</span> <span class="toc-text">十七.常用api</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#object%E7%B1%BB"><span class="toc-number">17.1.</span> <span class="toc-text">object类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#objects%E7%B1%BB"><span class="toc-number">17.2.</span> <span class="toc-text">objects类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">17.3.</span> <span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Date-%E7%B1%BB%E6%A6%82%E8%BF%B0"><span class="toc-number">17.4.</span> <span class="toc-text">Date 类概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SimpleDateFormat%E7%B1%BB"><span class="toc-number">17.5.</span> <span class="toc-text">SimpleDateFormat类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Calendar%E7%B1%BB"><span class="toc-number">17.6.</span> <span class="toc-text">Calendar类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-number">17.7.</span> <span class="toc-text">包装类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">17.8.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Arrays%E7%B1%BB"><span class="toc-number">17.9.</span> <span class="toc-text">Arrays类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AB-%E9%9B%86%E5%90%88"><span class="toc-number">18.</span> <span class="toc-text">十八.集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection-API"><span class="toc-number">18.1.</span> <span class="toc-text">Collection API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">18.2.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">18.2.1.</span> <span class="toc-text">方式一：迭代器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9Aforeach-%E5%A2%9E%E5%BC%BAfor%E5%BE%AA%E7%8E%AF"><span class="toc-number">18.2.2.</span> <span class="toc-text">方式二：foreach&#x2F;增强for循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%89%EF%BC%9Alambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">18.2.3.</span> <span class="toc-text">方式三：lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List%E9%9B%86%E5%90%88"><span class="toc-number">18.3.</span> <span class="toc-text">List集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ArrayList"><span class="toc-number">18.3.1.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedList"><span class="toc-number">18.3.2.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-number">18.3.3.</span> <span class="toc-text">泛型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set%E9%9B%86%E5%90%88"><span class="toc-number">18.4.</span> <span class="toc-text">Set集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HashSet"><span class="toc-number">18.4.1.</span> <span class="toc-text">HashSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedHashSet"><span class="toc-number">18.4.2.</span> <span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TreeSet"><span class="toc-number">18.4.3.</span> <span class="toc-text">TreeSet</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">18.5.</span> <span class="toc-text">可变参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collections-%E9%9B%86%E5%90%88%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">18.6.</span> <span class="toc-text">Collections 集合工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MAP%E9%9B%86%E5%90%88"><span class="toc-number">18.7.</span> <span class="toc-text">MAP集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.1.</span> <span class="toc-text">HashMap的特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedHashMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.2.</span> <span class="toc-text">LinkedHashMap集合概述和特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TreeMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.3.</span> <span class="toc-text">TreeMap集合概述和特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.4.</span> <span class="toc-text">Map集合实现类特点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E9%9B%86%E5%90%88"><span class="toc-number">18.8.</span> <span class="toc-text">不可变集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stream%E6%B5%81"><span class="toc-number">18.9.</span> <span class="toc-text">Stream流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E6%A6%82%E8%BF%B0"><span class="toc-number">18.9.1.</span> <span class="toc-text">Stream流的概述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-number">18.9.2.</span> <span class="toc-text">Stream流的获取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E5%B8%B8%E7%94%A8API-%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">18.9.3.</span> <span class="toc-text">Stream流的常用API(中间操作方法)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E5%B8%B8%E8%A7%81%E7%BB%88%E7%BB%93%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">18.9.4.</span> <span class="toc-text">Stream流的常见终结操作方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E6%94%B6%E9%9B%86%E6%93%8D%E4%BD%9C"><span class="toc-number">18.9.5.</span> <span class="toc-text">Stream流的收集操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D-%E5%BC%82%E5%B8%B8"><span class="toc-number">19.</span> <span class="toc-text">十九.异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0%E3%80%81%E4%BD%93%E7%B3%BB"><span class="toc-number">19.1.</span> <span class="toc-text">异常概述、体系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="toc-number">19.2.</span> <span class="toc-text">常见运行时异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="toc-number">19.3.</span> <span class="toc-text">常见编译时异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E9%BB%98%E8%AE%A4%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">19.4.</span> <span class="toc-text">异常的默认处理流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">19.5.</span> <span class="toc-text">编译时异常的处理机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">19.6.</span> <span class="toc-text">运行时异常的处理机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">19.7.</span> <span class="toc-text">自定义异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81-%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF"><span class="toc-number">20.</span> <span class="toc-text">二十.日志技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Logback%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6"><span class="toc-number">20.1.</span> <span class="toc-text">Logback日志框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80-File%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">21.</span> <span class="toc-text">二十一.File类的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAFile%E5%AF%B9%E8%B1%A1"><span class="toc-number">21.1.</span> <span class="toc-text">创建File对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">21.2.</span> <span class="toc-text">常用方法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">22.</span> <span class="toc-text">二十二.字符编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ASCII%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">22.1.</span> <span class="toc-text">ASCII字符集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GBK%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">22.2.</span> <span class="toc-text">GBK字符集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Unicode%EF%BC%88UTF-8%EF%BC%89"><span class="toc-number">22.3.</span> <span class="toc-text">Unicode（UTF-8）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89-IO%E6%B5%81"><span class="toc-number">23.</span> <span class="toc-text">二十三.IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E8%BE%93%E5%85%A5%E6%B5%81%EF%BC%9A"><span class="toc-number">23.1.</span> <span class="toc-text">字节输入流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E8%BE%93%E5%87%BA%E6%B5%81%EF%BC%9A"><span class="toc-number">23.2.</span> <span class="toc-text">字节输出流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81%EF%BC%9A"><span class="toc-number">23.3.</span> <span class="toc-text">字符输入流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E6%B5%81%EF%BC%9A"><span class="toc-number">23.4.</span> <span class="toc-text">字符输出流：</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E7%AC%AC%E4%B8%80%E6%AE%B5%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">一.第一段程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">二.变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">三.数据转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">四.方法的定义与调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E9%80%89%E6%8B%A9%E8%AF%AD%E5%8F%A5"><span class="toc-number">5.</span> <span class="toc-text">五.选择语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.</span> <span class="toc-text">六.循环语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83-%E6%95%B0%E7%BB%84"><span class="toc-number">7.</span> <span class="toc-text">七.数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">8.</span> <span class="toc-text">八.动态数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.</span> <span class="toc-text">九.字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-number">10.</span> <span class="toc-text">十.类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">11.</span> <span class="toc-text">十一.抽象类和抽象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-%E8%BD%AC%E5%9E%8B"><span class="toc-number">12.</span> <span class="toc-text">十二.转型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%89-%E6%8E%A5%E5%8F%A3"><span class="toc-number">13.</span> <span class="toc-text">十三.接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B-this%E5%92%8Csuper%E4%B8%93%E9%A2%98"><span class="toc-number">14.</span> <span class="toc-text">十四.this和super专题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%BA%94-final%E4%B8%93%E9%A2%98"><span class="toc-number">15.</span> <span class="toc-text">十五.final专题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AD-public-protect-default-private-static-final-abstract"><span class="toc-number">16.</span> <span class="toc-text">十六.public protect  default private static final abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%83-%E5%B8%B8%E7%94%A8api"><span class="toc-number">17.</span> <span class="toc-text">十七.常用api</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#object%E7%B1%BB"><span class="toc-number">17.1.</span> <span class="toc-text">object类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#objects%E7%B1%BB"><span class="toc-number">17.2.</span> <span class="toc-text">objects类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">17.3.</span> <span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Date-%E7%B1%BB%E6%A6%82%E8%BF%B0"><span class="toc-number">17.4.</span> <span class="toc-text">Date 类概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SimpleDateFormat%E7%B1%BB"><span class="toc-number">17.5.</span> <span class="toc-text">SimpleDateFormat类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Calendar%E7%B1%BB"><span class="toc-number">17.6.</span> <span class="toc-text">Calendar类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-number">17.7.</span> <span class="toc-text">包装类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">17.8.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Arrays%E7%B1%BB"><span class="toc-number">17.9.</span> <span class="toc-text">Arrays类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E5%85%AB-%E9%9B%86%E5%90%88"><span class="toc-number">18.</span> <span class="toc-text">十八.集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection-API"><span class="toc-number">18.1.</span> <span class="toc-text">Collection API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">18.2.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">18.2.1.</span> <span class="toc-text">方式一：迭代器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9Aforeach-%E5%A2%9E%E5%BC%BAfor%E5%BE%AA%E7%8E%AF"><span class="toc-number">18.2.2.</span> <span class="toc-text">方式二：foreach&#x2F;增强for循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%89%EF%BC%9Alambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">18.2.3.</span> <span class="toc-text">方式三：lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List%E9%9B%86%E5%90%88"><span class="toc-number">18.3.</span> <span class="toc-text">List集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ArrayList"><span class="toc-number">18.3.1.</span> <span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedList"><span class="toc-number">18.3.2.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-number">18.3.3.</span> <span class="toc-text">泛型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set%E9%9B%86%E5%90%88"><span class="toc-number">18.4.</span> <span class="toc-text">Set集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HashSet"><span class="toc-number">18.4.1.</span> <span class="toc-text">HashSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedHashSet"><span class="toc-number">18.4.2.</span> <span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TreeSet"><span class="toc-number">18.4.3.</span> <span class="toc-text">TreeSet</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">18.5.</span> <span class="toc-text">可变参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collections-%E9%9B%86%E5%90%88%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">18.6.</span> <span class="toc-text">Collections 集合工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MAP%E9%9B%86%E5%90%88"><span class="toc-number">18.7.</span> <span class="toc-text">MAP集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.1.</span> <span class="toc-text">HashMap的特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedHashMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.2.</span> <span class="toc-text">LinkedHashMap集合概述和特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TreeMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.3.</span> <span class="toc-text">TreeMap集合概述和特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%89%B9%E7%82%B9"><span class="toc-number">18.7.4.</span> <span class="toc-text">Map集合实现类特点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E9%9B%86%E5%90%88"><span class="toc-number">18.8.</span> <span class="toc-text">不可变集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stream%E6%B5%81"><span class="toc-number">18.9.</span> <span class="toc-text">Stream流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E6%A6%82%E8%BF%B0"><span class="toc-number">18.9.1.</span> <span class="toc-text">Stream流的概述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-number">18.9.2.</span> <span class="toc-text">Stream流的获取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E5%B8%B8%E7%94%A8API-%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">18.9.3.</span> <span class="toc-text">Stream流的常用API(中间操作方法)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E5%B8%B8%E8%A7%81%E7%BB%88%E7%BB%93%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">18.9.4.</span> <span class="toc-text">Stream流的常见终结操作方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream%E6%B5%81%E7%9A%84%E6%94%B6%E9%9B%86%E6%93%8D%E4%BD%9C"><span class="toc-number">18.9.5.</span> <span class="toc-text">Stream流的收集操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D-%E5%BC%82%E5%B8%B8"><span class="toc-number">19.</span> <span class="toc-text">十九.异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0%E3%80%81%E4%BD%93%E7%B3%BB"><span class="toc-number">19.1.</span> <span class="toc-text">异常概述、体系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="toc-number">19.2.</span> <span class="toc-text">常见运行时异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="toc-number">19.3.</span> <span class="toc-text">常见编译时异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E9%BB%98%E8%AE%A4%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">19.4.</span> <span class="toc-text">异常的默认处理流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">19.5.</span> <span class="toc-text">编译时异常的处理机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">19.6.</span> <span class="toc-text">运行时异常的处理机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">19.7.</span> <span class="toc-text">自定义异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81-%E6%97%A5%E5%BF%97%E6%8A%80%E6%9C%AF"><span class="toc-number">20.</span> <span class="toc-text">二十.日志技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Logback%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6"><span class="toc-number">20.1.</span> <span class="toc-text">Logback日志框架</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80-File%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">21.</span> <span class="toc-text">二十一.File类的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAFile%E5%AF%B9%E8%B1%A1"><span class="toc-number">21.1.</span> <span class="toc-text">创建File对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">21.2.</span> <span class="toc-text">常用方法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">22.</span> <span class="toc-text">二十二.字符编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ASCII%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">22.1.</span> <span class="toc-text">ASCII字符集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GBK%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">22.2.</span> <span class="toc-text">GBK字符集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Unicode%EF%BC%88UTF-8%EF%BC%89"><span class="toc-number">22.3.</span> <span class="toc-text">Unicode（UTF-8）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89-IO%E6%B5%81"><span class="toc-number">23.</span> <span class="toc-text">二十三.IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E8%BE%93%E5%85%A5%E6%B5%81%EF%BC%9A"><span class="toc-number">23.1.</span> <span class="toc-text">字节输入流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E8%BE%93%E5%87%BA%E6%B5%81%EF%BC%9A"><span class="toc-number">23.2.</span> <span class="toc-text">字节输出流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81%EF%BC%9A"><span class="toc-number">23.3.</span> <span class="toc-text">字符输入流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E6%B5%81%EF%BC%9A"><span class="toc-number">23.4.</span> <span class="toc-text">字符输出流：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E6%B5%81"><span class="toc-number">23.5.</span> <span class="toc-text">缓冲流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E8%BE%93%E5%85%A5%E5%92%8C%E5%AD%97%E8%8A%82%E8%BE%93%E5%87%BA%E7%BC%93%E5%86%B2%E6%B5%81"><span class="toc-number">23.5.1.</span> <span class="toc-text">字节输入和字节输出缓冲流</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E6%B5%81"><span class="toc-number">23.5.2.</span> <span class="toc-text">字符输入缓冲流</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E7%BC%93%E5%86%B2%E6%B5%81"><span class="toc-number">23.5.3.</span> <span class="toc-text">字符输出缓冲流</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-number">23.6.</span> <span class="toc-text">转换流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-number">23.6.1.</span> <span class="toc-text">字符输入转换流</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-number">23.6.2.</span> <span class="toc-text">字符输出转换流</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="toc-number">23.7.</span> <span class="toc-text">序列化对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9A"><span class="toc-number">23.7.1.</span> <span class="toc-text">对象序列化：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9A"><span class="toc-number">23.7.2.</span> <span class="toc-text">对象反序列化：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%B5%81"><span class="toc-number">23.8.</span> <span class="toc-text">打印流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">23.9.</span> <span class="toc-text">输出语句重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Properties"><span class="toc-number">23.10.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IO%E6%A1%86%E6%9E%B6"><span class="toc-number">23.11.</span> <span class="toc-text">IO框架</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#commons-io"><span class="toc-number">23.11.1.</span> <span class="toc-text">commons-io</span></a></li></ol></li></ol></li></ol>
         </div>
     
 </div>
